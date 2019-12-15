@@ -102,4 +102,34 @@ let Context: Context = {
 	}
 }
 
+class AppContext {
+	private controller: contextMap
+	private service: contextMap
+	private dao: contextMap
+	public static init: any
+
+	constructor() {
+		this.controller = {}
+		this.service = {}
+		this.dao = {}
+	}
+
+	dynamicRequrie(path: string) {
+		let map: contextMap = {}
+		if (fs.existsSync(path)) {
+			let childs = fs.readdirSync(path)
+			childs.forEach((childName: string) => {
+				let info: fs.Stats = fs.statSync(path + "/" + childName)
+				if (!info.isDirectory()) {
+					let result = /(\S+)\.(js|ts)$/.exec(childName)
+					if (result && result[1] !== 'index') {
+						map[result[1]] = require(path + '/' + childName)
+					}
+				}
+			})
+		}
+		return map
+	}
+}
+
 export default Context
