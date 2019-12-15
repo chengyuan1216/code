@@ -1,0 +1,19 @@
+{
+  "name": "typescript-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.8"
+  },
+  "scripts": {
+    "c": "tsc -w",
+    "test": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

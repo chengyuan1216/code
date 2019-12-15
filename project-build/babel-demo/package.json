@@ -1,0 +1,28 @@
+{
+  "name": "babel-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel-arrow": "babel src  --out-dir lib --plugins=@babel/plugin-transform-arrow-functions",
+    "babel": "babel src  --out-dir lib --presets=@babel/env",
+    "b": "babel src  --out-dir lib",
+    "test:babel-node": "babel-node ./src/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/preset-env": "^7.6.2",
+    "babel-plugin-transform-decorators": "^6.24.1"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/runtime": "^7.6.2"
+  }
+}
