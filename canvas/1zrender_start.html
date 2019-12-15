@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>canvas</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/zrender/4.1.1/zrender.js"></script>
+</head>
+<body>
+  <div style="width: 400px; height: 400px;" id="main">
+
+  </div>
+  <script>
+    // 初始化画布
+    var zr = zrender.init(document.getElementById('main'))
+
+    // 画一个圆
+    var circle = new zrender.Circle({
+      shape: {
+          cx: 150,
+          cy: 50,
+          r: 40
+      },
+      style: {
+          fill: 'none',
+          stroke: '#F00'
+      }
+    });
+
+    // 将圆添加到画布
+    zr.add(circle);
+
+    // 修改圆
+    setInterval(() => {
+      circle.attr('shape', {
+          r: 50 * Math.random() // 只更新 r。cx、cy 将保持不变。
+      });
+    }, 1000)
+  </script>
+</body>
+</html>
+  
