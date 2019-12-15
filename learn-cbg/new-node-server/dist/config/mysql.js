@@ -1,6 +1,16 @@
 "use strict";
 
-var mysql = require('mysql'); // 数据库设置
+var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var mysql_1 = __importDefault(require("mysql")); // 数据库设置
 
 
 var config = {
@@ -11,25 +21,29 @@ var config = {
   database: 'learn_cbg'
 };
 
-class Mysql {
-  constructor(cfg) {
+var Mysql =
+/** @class */
+function () {
+  function Mysql(cfg) {
     this.pool = null;
     this.config = cfg || config;
     this.createPool(this.config);
   }
 
-  createPool(config) {
-    this.pool = mysql.createPool(config);
-  }
+  Mysql.prototype.createPool = function (config) {
+    this.pool = mysql_1.default.createPool(config);
+  };
 
-  getConnection() {
+  Mysql.prototype.getConnection = function () {
+    var _this = this;
+
     if (!this.pool) {
       console.error('未创建数据连接池');
     }
 
     var connection = null;
-    var connect = new Promise((reslove, reject) => {
-      this.pool.getConnection(function (err, con) {
+    var connect = new Promise(function (reslove, reject) {
+      _this.pool.getConnection(function (err, con) {
         if (err) {
           reject(err);
         }
@@ -38,7 +52,7 @@ class Mysql {
         reslove(con);
       });
     });
-    connect.finally(() => {
+    connect.finally(function () {
       try {
         connection && connection.release();
       } catch (e) {
@@ -46,22 +60,26 @@ class Mysql {
       }
     });
     return connect;
-  }
+  };
 
-} // 保存实例
+  return Mysql;
+}();
 
+exports.default = Mysql; // 保存实例
 
 var instance = null;
 
-Mysql.getInstance = () => instance;
+Mysql.getInstance = function () {
+  return instance;
+};
 
-Mysql.getConnection = () => instance.getConnection();
+Mysql.getConnection = function () {
+  return instance.getConnection();
+};
 
-Mysql.init = () => {
+Mysql.init = function () {
   if (!instance) {
     instance = new Mysql();
     console.log("\u521D\u59CB\u5316 mysql \u6210\u529F");
   }
 };
-
-module.exports = Mysql;

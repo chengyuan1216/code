@@ -1,8 +1,8 @@
 // 系统模块
-const express = require('express');
-const context = require("./context.js")
-const mysql = require("./config/mysql.js")
-const env = require('./config/env.js')
+import express, { Application, Request, Response, NextFunction } from 'express'
+import context from './context'
+import mysql from './config/mysql.js'
+import env from './config/env'
 const bodyParser = require('body-parser')
 
 //日志
@@ -11,11 +11,11 @@ const log4js_config = require("../log4js.json");
 log4js.configure(log4js_config)
 const Logger = log4js.getLogger()
 
-const app = express()
+const app: Application = express()
 app.set('express', express)
 
 //设置允许跨域访问该服务.
-app.all(['*.js', '*.html', '*.css'], function (req: any, res: any, next: any) {
+app.all(['*.js', '*.html', '*.css'], function (req: Request, res: Response, next: NextFunction) {
 	res.header('Access-Control-Allow-Origin', '*')
 	res.header('Access-Control-Allow-Headers', 'Content-Type')
 	res.header('Access-Control-Allow-Methods', '*')
