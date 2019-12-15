@@ -4,12 +4,12 @@ import Response from '../dto/Response'
 import express from 'express'
 
 @Inject([])
-export default class StudentApi {
+export default class CardApi {
 	constructor() {
 	}
 
 	@Get('/getCardList')
-	async list(req: express.Request, res: express.Response) {
+	list(req: express.Request, res: express.Response) {
 		Response.success(res, [
 			{ id: 1, name: 'test' }
 		])
