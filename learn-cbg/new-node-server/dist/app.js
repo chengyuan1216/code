@@ -1,23 +1,16 @@
 "use strict";
 
-var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-}); // 系统模块
+var _express = _interopRequireDefault(require("express"));
 
-var express_1 = __importDefault(require("express"));
+var _context = _interopRequireDefault(require("./context"));
 
-var context_1 = __importDefault(require("./context"));
+var _mysql = _interopRequireDefault(require("./config/mysql.js"));
 
-var mysql_js_1 = __importDefault(require("./config/mysql.js"));
+var _env = _interopRequireDefault(require("./config/env"));
 
-var env_1 = __importDefault(require("./config/env"));
-
+// 系统模块
 var bodyParser = require('body-parser'); //日志
 
 
@@ -27,8 +20,8 @@ var log4js_config = require("../log4js.json");
 
 log4js.configure(log4js_config);
 var Logger = log4js.getLogger();
-var app = express_1.default();
-app.set('express', express_1.default); //设置允许跨域访问该服务.
+var app = (0, _express.default)();
+app.set('express', _express.default); //设置允许跨域访问该服务.
 
 app.all(['*.js', '*.html', '*.css'], function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -38,8 +31,12 @@ app.all(['*.js', '*.html', '*.css'], function (req, res, next) {
 }); // 请求体
 
 app.use(bodyParser.json());
-context_1.default.init(app);
-mysql_js_1.default.init();
-app.listen(env_1.default.port, function () {
-  console.log("\u670D\u52A1\u542F\u52A8\u6210\u529F ==> http://" + env_1.default.hostname + ":" + env_1.default.port + "/");
+
+_context.default.init(app);
+
+_mysql.default.init();
+
+app.listen(_env.default.port, () => {
+  console.log("\u670D\u52A1\u542F\u52A8\u6210\u529F ==> http://".concat(_env.default.hostname, ":").concat(_env.default.port, "/"));
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9hcHAudHMiXSwibmFtZXMiOlsiYm9keVBhcnNlciIsInJlcXVpcmUiLCJsb2c0anMiLCJsb2c0anNfY29uZmlnIiwiY29uZmlndXJlIiwiTG9nZ2VyIiwiZ2V0TG9nZ2VyIiwiYXBwIiwic2V0IiwiZXhwcmVzcyIsImFsbCIsInJlcSIsInJlcyIsIm5leHQiLCJoZWFkZXIiLCJ1c2UiLCJqc29uIiwiY29udGV4dCIsImluaXQiLCJteXNxbCIsImxpc3RlbiIsImVudiIsInBvcnQiLCJjb25zb2xlIiwibG9nIiwiaG9zdG5hbWUiXSwibWFwcGluZ3MiOiI7Ozs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFKQTtBQUtBLElBQU1BLFVBQVUsR0FBR0MsT0FBTyxDQUFDLGFBQUQsQ0FBMUIsQyxDQUVBOzs7QUFDQSxJQUFNQyxNQUFNLEdBQUdELE9BQU8sQ0FBQyxRQUFELENBQXRCOztBQUNBLElBQU1FLGFBQWEsR0FBR0YsT0FBTyxDQUFDLGdCQUFELENBQTdCOztBQUNBQyxNQUFNLENBQUNFLFNBQVAsQ0FBaUJELGFBQWpCO0FBQ0EsSUFBTUUsTUFBTSxHQUFHSCxNQUFNLENBQUNJLFNBQVAsRUFBZjtBQUVBLElBQU1DLEdBQWdCLEdBQUcsdUJBQXpCO0FBQ0FBLEdBQUcsQ0FBQ0MsR0FBSixDQUFRLFNBQVIsRUFBbUJDLGdCQUFuQixFLENBRUE7O0FBQ0FGLEdBQUcsQ0FBQ0csR0FBSixDQUFRLENBQUMsTUFBRCxFQUFTLFFBQVQsRUFBbUIsT0FBbkIsQ0FBUixFQUFxQyxVQUFVQyxHQUFWLEVBQXdCQyxHQUF4QixFQUF1Q0MsSUFBdkMsRUFBMkQ7QUFDL0ZELEVBQUFBLEdBQUcsQ0FBQ0UsTUFBSixDQUFXLDZCQUFYLEVBQTBDLEdBQTFDO0FBQ0FGLEVBQUFBLEdBQUcsQ0FBQ0UsTUFBSixDQUFXLDhCQUFYLEVBQTJDLGNBQTNDO0FBQ0FGLEVBQUFBLEdBQUcsQ0FBQ0UsTUFBSixDQUFXLDhCQUFYLEVBQTJDLEdBQTNDO0FBQ0FELEVBQUFBLElBQUk7QUFDSixDQUxELEUsQ0FPQTs7QUFDQU4sR0FBRyxDQUFDUSxHQUFKLENBQVFmLFVBQVUsQ0FBQ2dCLElBQVgsRUFBUjs7QUFFQUMsaUJBQVFDLElBQVIsQ0FBYVgsR0FBYjs7QUFDQVksZUFBTUQsSUFBTjs7QUFFQVgsR0FBRyxDQUFDYSxNQUFKLENBQVdDLGFBQUlDLElBQWYsRUFBcUIsTUFBTTtBQUMxQkMsRUFBQUEsT0FBTyxDQUFDQyxHQUFSLDJEQUFpQ0gsYUFBSUksUUFBckMsY0FBaURKLGFBQUlDLElBQXJEO0FBQ0EsQ0FGRCIsInNvdXJjZXNDb250ZW50IjpbIi8vIOezu+e7n+aooeWdl1xyXG5pbXBvcnQgZXhwcmVzcywgeyBBcHBsaWNhdGlvbiwgUmVxdWVzdCwgUmVzcG9uc2UsIE5leHRGdW5jdGlvbiB9IGZyb20gJ2V4cHJlc3MnXHJcbmltcG9ydCBjb250ZXh0IGZyb20gJy4vY29udGV4dCdcclxuaW1wb3J0IG15c3FsIGZyb20gJy4vY29uZmlnL215c3FsLmpzJ1xyXG5pbXBvcnQgZW52IGZyb20gJy4vY29uZmlnL2VudidcclxuY29uc3QgYm9keVBhcnNlciA9IHJlcXVpcmUoJ2JvZHktcGFyc2VyJylcclxuXHJcbi8v5pel5b+XXHJcbmNvbnN0IGxvZzRqcyA9IHJlcXVpcmUoXCJsb2c0anNcIik7XHJcbmNvbnN0IGxvZzRqc19jb25maWcgPSByZXF1aXJlKFwiLi4vbG9nNGpzLmpzb25cIik7XHJcbmxvZzRqcy5jb25maWd1cmUobG9nNGpzX2NvbmZpZylcclxuY29uc3QgTG9nZ2VyID0gbG9nNGpzLmdldExvZ2dlcigpXHJcblxyXG5jb25zdCBhcHA6IEFwcGxpY2F0aW9uID0gZXhwcmVzcygpXHJcbmFwcC5zZXQoJ2V4cHJlc3MnLCBleHByZXNzKVxyXG5cclxuLy/orr7nva7lhYHorrjot6jln5/orr/pl67or6XmnI3liqEuXHJcbmFwcC5hbGwoWycqLmpzJywgJyouaHRtbCcsICcqLmNzcyddLCBmdW5jdGlvbiAocmVxOiBSZXF1ZXN0LCByZXM6IFJlc3BvbnNlLCBuZXh0OiBOZXh0RnVuY3Rpb24pIHtcclxuXHRyZXMuaGVhZGVyKCdBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW4nLCAnKicpXHJcblx0cmVzLmhlYWRlcignQWNjZXNzLUNvbnRyb2wtQWxsb3ctSGVhZGVycycsICdDb250ZW50LVR5cGUnKVxyXG5cdHJlcy5oZWFkZXIoJ0FjY2Vzcy1Db250cm9sLUFsbG93LU1ldGhvZHMnLCAnKicpXHJcblx0bmV4dCgpXHJcbn0pXHJcblxyXG4vLyDor7fmsYLkvZNcclxuYXBwLnVzZShib2R5UGFyc2VyLmpzb24oKSlcclxuXHJcbmNvbnRleHQuaW5pdChhcHApXHJcbm15c3FsLmluaXQoKVxyXG5cclxuYXBwLmxpc3RlbihlbnYucG9ydCwgKCkgPT4ge1xyXG5cdGNvbnNvbGUubG9nKGDmnI3liqHlkK/liqjmiJDlip8gPT0+IGh0dHA6Ly8ke2Vudi5ob3N0bmFtZX06JHtlbnYucG9ydH0vYClcclxufSkiXX0=

@@ -1,10 +1,25 @@
 {
   "presets": [
-    ["@babel/preset-typescript"],
-    ["@babel/preset-env", {"targets": {"esmodules": true}}],
+    // 设置typescript
+    [
+      "@babel/preset-typescript"
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ],
   ],
   "plugins": [
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "@babel/plugin-transform-runtime"
   ]
 }

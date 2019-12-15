@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "node ./dist/app.js",
     "test": "node --inspect ./dist/app.js",
-    "build": "babel src -d dist",
+    "build": "babel src -d dist --extensions \".ts\" --source-maps inline",
     "es-checker": "node .\\node_modules\\es-checker\\bin\\check.js",
-    "start": "npm run tsc && npm run build && npm run dev",
-    "tsc": "tsc"
+    "start": "npm run build && npm run dev && type-check:watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
   },
   "keywords": [
     "demo"
