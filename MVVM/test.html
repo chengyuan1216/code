@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="Until.js"></script>
+		<script type="text/javascript" src="Dep.js"></script>
+		<script type="text/javascript" src="Observer.js"></script>
+		<script type="text/javascript" src="ObserverIE.js"></script>
+		<script type="text/javascript" src="Watcher.js"></script>
+		<script type="text/javascript" src="Compile.js"></script>
+		<script type="text/javascript" src="Butterfly.js"></script>
+	</head>
+	<body>
+		<div id="test">
+ 			<input type="input" v-model="c">
+			<h1>c: {{c}}</h1>
+			<h1>d: {{d}}</h1>
+			<button v-on:click="clickBtn">按钮</button>
+		</div>
+		<script type="text/javascript">
+			var options = {
+				el: document.getElementById("test"),
+				data: {
+					a: {
+						b: 2
+					},
+					c: 4,
+					d: 6
+				},
+				methods: {
+					clickBtn: function(){
+						this.c.set(100)
+						//this.c = 100
+					}
+				}
+			}
+			Butterfly.compatible = false
+			var vm = new Butterfly(options) //兼容IE7+
+		</script>
+	</body>
+</html>
