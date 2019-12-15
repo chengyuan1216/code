@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    input {
+      background-color: #fff;
+      background-image: none;
+      border-radius: 4px;
+      border: 1px solid #bfcbd9;
+      box-sizing: border-box;
+      color: #1f2d3d;
+      font-size: inherit;
+      height: 40px;
+      line-height: 1;
+      outline: 0;
+      padding: 3px 10px;
+    }
+    .el-button--primary {
+      color: #fff;
+      background-color: #20a0ff;
+      border-color: #20a0ff;
+    }
+    .el-button {
+      display: inline-block;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      background: #00aac5;
+      border: 1px solid #c4c4c4;
+      color: #fff;
+      margin: 0;
+      padding: 10px 15px;
+      border-radius: 4px;
+      outline: 0;
+      text-align: center;
+    }
+    #login {
+      position:fixed;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    #login button {
+      margin-top: 40px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="login" style="display: node;">
+    <input type="text" id="username" placeholder="用户名"><br>
+    <button class="el-button el-button--primary el-button--large" type="button" onclick="login()"><span>登录</span></button>
+  </div>
+  <div id="home" style="display: none;">
+    接收人：<input type="text" id="to"><br/><br/>
+    消息：<input type="text" id="message"><br/><br/>
+    <button class="el-button el-button--primary el-button--large" type="button" onclick="sendMessage()"><span>发送消息</span></button>
+    <button class="el-button el-button--primary el-button--large" type="button" onclick="groupSendMessage()"><span>群发</span></button>
+    <div style="border: 2px solid #000000; min-height: 400px;" id="console">
+    </div>
+  </div>
+  <script src="./socket.io.js"></script>
+  <script>
+    var usernameInput = document.getElementById('username')
+    var homePage = document.getElementById('home')
+    var loginPage = document.getElementById('login')
+    var username = null
+  </script>
+  <script>
+    function login() {
+      username = usernameInput.value
+      if (!username) {
+        alert('用户名不能为空')
+      }
+      socket.emit('login', { 
+        name: username
+      })
+    }
+
+    // 创建socket连接
+    var socket = io.connect('http://120.78.141.148:3389');
+    var oConsole = document.getElementById('console')
+
+    function showMessage(data) {
+      oConsole.innerHTML = '<i>'+(data.from? data.from+'说：': '系统消息：') +'</i>' + '<p style="margin: 20px; font-size: 20px;">'+data.message+'</P>' + oConsole.innerHTML
+      oConsole.innerHTML = '<p style="margin: 20px; font-size: 20px;">'+new Date().toLocaleString()+': </P>' + oConsole.innerHTML
+    }
+    
+    // 用于接受服务器推送过来的消息， 不是广播
+    socket.on('client', function(data) {
+      console.log('client', data)
+      showMessage(data)
+      if (data.type === 'loginResponse') {
+        if (data.stats === 'success') {
+          loginPage.style.display = 'none'
+          homePage.style.display = 'block'
+        } else {
+          alert(data.message)
+        }
+      }
+    })
+
+    function groupSendMessage() {
+      let message = document.getElementById('message').value
+      let to = document.getElementById('to').value
+      socket.emit('groupSendMessage', { 
+        from: username,
+        message: message
+      });
+    }
+
+    function sendMessage() {
+      let message = document.getElementById('message').value
+      let to = document.getElementById('to').value
+      socket.emit('singleSendMessage', { 
+        from: username,
+        to: to,
+        message: message
+      });
+    }
+
+    function logout() {
+      let message = document.getElementById('message').value
+      let from = document.getElementById('from').value
+      let to = document.getElementById('to').value
+      socket.emit('server', { 
+        type: 'sendSingle',
+        from: from,
+        to: to,
+        message: message
+      });
+    }
+  </script>
+</body>
+</html>
