@@ -4,7 +4,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-const {
+var {
   getConnection
 } = require('../config/mysql.js');
 
@@ -22,8 +22,8 @@ class Sql {
     var _this = this;
 
     return (0, _asyncToGenerator2.default)(function* () {
-      let sql = "SELECT * FROM ".concat(_this.tableName, " where id = '").concat(id, "'");
-      let result = yield _this.query(sql);
+      var sql = "SELECT * FROM ".concat(_this.tableName, " where id = '").concat(id, "'");
+      var result = yield _this.query(sql);
       return result[0];
     })();
   }
@@ -37,9 +37,9 @@ class Sql {
     var _this2 = this;
 
     return (0, _asyncToGenerator2.default)(function* () {
-      let sql = "DELETE FROM ".concat(_this2.tableName, " WHERE id = '").concat(id, "'");
+      var sql = "DELETE FROM ".concat(_this2.tableName, " WHERE id = '").concat(id, "'");
 
-      let result = _this2.query(sql);
+      var result = _this2.query(sql);
 
       return result;
     })();
@@ -54,12 +54,12 @@ class Sql {
     var _this3 = this;
 
     return (0, _asyncToGenerator2.default)(function* () {
-      let fileds = Object.keys(row);
-      let values = [];
+      var fileds = Object.keys(row);
+      var values = [];
       fileds.forEach(key => {
         values.push("'".concat(row[key], "'"));
       });
-      let sql = "INSERT INTO ".concat(_this3.tableName, " (").concat(fileds.join(','), ") VALUES (").concat(values.join(','), ");");
+      var sql = "INSERT INTO ".concat(_this3.tableName, " (").concat(fileds.join(','), ") VALUES (").concat(values.join(','), ");");
       return yield _this3.query(sql);
     })();
   }
@@ -73,16 +73,16 @@ class Sql {
     var _this4 = this;
 
     return (0, _asyncToGenerator2.default)(function* () {
-      let whereCondition = '';
-      let limitCondition = '';
+      var whereCondition = '';
+      var limitCondition = '';
 
       if (condition instanceof Condition) {
         whereCondition = condition.whereCondition;
         limitCondition = condition.limitCondition;
       }
 
-      let sql = "SELECT * FROM ".concat(_this4.tableName, " ").concat(whereCondition, " ").concat(limitCondition);
-      let result = yield _this4.query(sql);
+      var sql = "SELECT * FROM ".concat(_this4.tableName, " ").concat(whereCondition, " ").concat(limitCondition);
+      var result = yield _this4.query(sql);
       return result;
     })();
   }
@@ -96,15 +96,15 @@ class Sql {
     var _this5 = this;
 
     return (0, _asyncToGenerator2.default)(function* () {
-      let setCondition = '';
-      let whereCondition = '';
+      var setCondition = '';
+      var whereCondition = '';
 
       if (condition instanceof Condition) {
         setCondition = condition.setCondition;
         whereCondition = condition.whereCondition;
       }
 
-      let sql = "UPDATE ".concat(_this5.tableName, " ").concat(setCondition, " ").concat(whereCondition);
+      var sql = "UPDATE ".concat(_this5.tableName, " ").concat(setCondition, " ").concat(whereCondition);
       return yield _this5.query(sql);
     })();
   }
@@ -119,9 +119,9 @@ class Sql {
 
     return (0, _asyncToGenerator2.default)(function* () {
       // 查询的结果
-      let result = yield _this6.select(new Condition().page(condition.pageNum, condition.pageSize)); // 总条数
+      var result = yield _this6.select(new Condition().page(condition.pageNum, condition.pageSize)); // 总条数
 
-      let count = yield _this6.count();
+      var count = yield _this6.count();
       return {
         data: result,
         total: count[0]['count'],
@@ -140,7 +140,7 @@ class Sql {
     var _this7 = this;
 
     return (0, _asyncToGenerator2.default)(function* () {
-      let sql = "SELECT COUNT(*) AS count FROM ".concat(_this7.tableName);
+      var sql = "SELECT COUNT(*) AS count FROM ".concat(_this7.tableName);
       return yield _this7.query(sql);
     })();
   }

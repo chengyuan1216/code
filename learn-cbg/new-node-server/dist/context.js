@@ -1,30 +1,33 @@
 "use strict";
 
-const path = require('path');
+var path = require('path');
 
-const fs = require('fs');
+var fs = require('fs');
 
-const context = {
+var context = {
   api: {},
   service: {},
-  dao: {} // 动态加载文件
-
-};
+  dao: {}
+}; // 动态加载文件
 
 function dynamicRequrie(path) {
-  let map = {};
-  let childs = fs.readdirSync(path);
-  childs.forEach(childName => {
-    let info = fs.statSync(path + "/" + childName);
+  var map = {};
 
-    if (!info.isDirectory()) {
-      let result = /(\S+)\.(js|ts)$/.exec(childName);
+  if (fs.existsSync(path)) {
+    var childs = fs.readdirSync(path);
+    childs.forEach(childName => {
+      var info = fs.statSync(path + "/" + childName);
 
-      if (result && result[1] !== 'index') {
-        map[result[1]] = require(path + '/' + childName);
+      if (!info.isDirectory()) {
+        var result = /(\S+)\.(js|ts)$/.exec(childName);
+
+        if (result && result[1] !== 'index') {
+          map[result[1]] = require(path + '/' + childName);
+        }
       }
-    }
-  });
+    });
+  }
+
   return map;
 }
 
@@ -42,37 +45,37 @@ function inject(constructor, instance) {
 }
 
 function registerDao(app) {
-  let daoMap = dynamicRequrie(path.resolve(__dirname, './dao'));
+  var daoMap = dynamicRequrie(path.resolve(__dirname, './dao'));
   Object.keys(daoMap).forEach(daoName => {
     context.dao[daoName] = new daoMap[daoName]();
   });
 }
 
 function registerService(app) {
-  let serviceMap = dynamicRequrie(path.resolve(__dirname, './service'));
+  var serviceMap = dynamicRequrie(path.resolve(__dirname, './service'));
   Object.keys(serviceMap).forEach(serviceName => {
-    let ServiceConstructor = serviceMap[serviceName];
+    var ServiceConstructor = serviceMap[serviceName];
     context.service[serviceName] = new ServiceConstructor();
     inject(ServiceConstructor, context.service[serviceName]);
   });
 }
 
 function registerApiRouter(app) {
-  let apiMap = dynamicRequrie(path.resolve(__dirname, './api'));
+  var apiMap = dynamicRequrie(path.resolve(__dirname, './api'));
   Object.keys(apiMap).map(apiName => {
-    let ApiConstructor = apiMap[apiName];
-    let apiInstance = new ApiConstructor();
+    var ApiConstructor = apiMap[apiName];
+    var apiInstance = new ApiConstructor();
     inject(ApiConstructor, apiInstance);
     Object.getOwnPropertyNames(ApiConstructor.prototype).map(key => {
       if (apiInstance[key].requestMethod) {
-        let {
+        var {
           requestUrl,
           requestMethod,
           middleWare
         } = apiInstance[key];
         middleWare = middleWare || [];
         middleWare.push(apiInstance[key]);
-        let middleWares = [];
+        var middleWares = [];
         middleWare.forEach(fn => {
           middleWares.push((req, res, next) => {
             fn.call(apiInstance, req, res, next);
@@ -89,7 +92,7 @@ function registerStaticFileRouter(app) {
   app.use('/card', app.get('express').static(path.resolve(__dirname, '../cards')));
 }
 
-const dispatchServlet = {
+var dispatchServlet = {
   init: app => {
     app.context = context;
     registerService(app);

@@ -1,14 +1,14 @@
 "use strict";
 
-const mysql = require('mysql'); // 数据库设置
+var mysql = require('mysql'); // 数据库设置
 
 
-const config = {
+var config = {
   connectionLimit: 50,
   host: 'localhost',
   user: 'root',
   password: '123456',
-  database: 'stockmgt'
+  database: 'learn_cbg'
 };
 
 class Mysql {
@@ -27,8 +27,8 @@ class Mysql {
       console.error('未创建数据连接池');
     }
 
-    let connection = null;
-    let connect = new Promise((reslove, reject) => {
+    var connection = null;
+    var connect = new Promise((reslove, reject) => {
       this.pool.getConnection(function (err, con) {
         if (err) {
           reject(err);
@@ -51,7 +51,7 @@ class Mysql {
 } // 保存实例
 
 
-let instance = null;
+var instance = null;
 
 Mysql.getInstance = () => instance;
 

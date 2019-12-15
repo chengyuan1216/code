@@ -1,8 +1,8 @@
 "use strict";
 
-let fs = require('fs');
+var fs = require('fs');
 
-let join = require('path').join;
+var join = require('path').join;
 /**
  * 
  * @param startPath  起始目录文件夹路径
@@ -11,13 +11,13 @@ let join = require('path').join;
 
 
 module.exports = function findSync(startPath) {
-  let result = [];
+  var result = [];
 
   function finder(path) {
-    let files = fs.readdirSync(path);
+    var files = fs.readdirSync(path);
     files.forEach((val, index) => {
-      let fPath = join(path, val);
-      let stats = fs.statSync(fPath);
+      var fPath = join(path, val);
+      var stats = fs.statSync(fPath);
       if (stats.isDirectory()) finder(fPath);
       if (stats.isFile()) result.push(fPath);
     });

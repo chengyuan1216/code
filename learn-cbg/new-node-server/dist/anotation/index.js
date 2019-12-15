@@ -1,6 +1,6 @@
 "use strict";
 
-const GlobalConst = require("../const/global.js"); // service层注解
+var GlobalConst = require("../const/global.js"); // service层注解
 
 
 module.exports.Service = serviceName => {

@@ -8,20 +8,22 @@ const context = {
 }
 
 // 动态加载文件
-function dynamicRequrie(path){ 
-	let map = {} 
-	let childs = fs.readdirSync(path)
-    childs.forEach(childName => {  
-        let info = fs.statSync(path + "/" + childName)      
-        if(!info.isDirectory()){  
-			let result = /(\S+)\.(js|ts)$/.exec(childName)
-			if (result && result[1] !== 'index') {
-				map[result[1]] = require(path + '/' + childName)
+function dynamicRequrie(path) {
+	let map = {}
+	if (fs.existsSync(path)) {
+		let childs = fs.readdirSync(path)
+		childs.forEach(childName => {
+			let info = fs.statSync(path + "/" + childName)
+			if (!info.isDirectory()) {
+				let result = /(\S+)\.(js|ts)$/.exec(childName)
+				if (result && result[1] !== 'index') {
+					map[result[1]] = require(path + '/' + childName)
+				}
 			}
-        }     
-	})  
+		})
+	}
 	return map
-}  
+}
 
 function inject(constructor, instance) {
 	if (constructor.inject) {
@@ -61,7 +63,7 @@ function registerApiRouter(app) {
 
 		Object.getOwnPropertyNames(ApiConstructor.prototype).map(key => {
 			if (apiInstance[key].requestMethod) {
-				let { requestUrl, requestMethod,  middleWare } = apiInstance[key]
+				let { requestUrl, requestMethod, middleWare } = apiInstance[key]
 				middleWare = middleWare || []
 				middleWare.push(apiInstance[key])
 				let middleWares = []

@@ -15,7 +15,7 @@ const app = express()
 app.set('express', express)
 
 //设置允许跨域访问该服务.
-app.all(['*.js', '*.html', '*.css'], function (req, res, next) {
+app.all(['*.js', '*.html', '*.css'], function (req: any, res: any, next: any) {
 	res.header('Access-Control-Allow-Origin', '*')
 	res.header('Access-Control-Allow-Headers', 'Content-Type')
 	res.header('Access-Control-Allow-Methods', '*')

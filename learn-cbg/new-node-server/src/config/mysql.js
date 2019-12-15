@@ -6,7 +6,7 @@ const config = {
 	host: 'localhost',
 	user: 'root',
 	password: '123456',
-	database: 'stockmgt'
+	database: 'learn_cbg'
 }
 
 class Mysql {

@@ -50,7 +50,7 @@ Response.exception = (res, data) => {
   try {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/json;charset=utf-8');
-    let result = JSON.stringify(new Response(Response.EXCEPTION.code, Response.EXCEPTION.msg, data));
+    var result = JSON.stringify(new Response(Response.EXCEPTION.code, Response.EXCEPTION.msg, data));
     res.end(result);
     throw new Error(result);
   } catch (e) {
