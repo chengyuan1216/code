@@ -1,0 +1,283 @@
+﻿[2018-12-16T10:43:28.702] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:45:51.513] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:46:37.982] [INFO] default - GET 请求
+[2018-12-16T10:47:27.100] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:47:41.629] [INFO] default - GET 请求
+[2018-12-16T10:48:55.345] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:49:16.634] [INFO] default - GET 请求
+[2018-12-16T10:51:23.745] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:51:50.013] [INFO] default - GET 请求
+[2018-12-16T10:53:31.549] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:53:58.803] [INFO] default - GET 请求
+[2018-12-16T10:53:58.803] [INFO] default - search ==> null
+[2018-12-16T10:53:58.803] [INFO] default - query ==> {}
+[2018-12-16T10:53:58.803] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T10:53:58.803] [INFO] default - path ==> /lyjx.html
+[2018-12-16T10:53:58.803] [INFO] default - href ==> /lyjx.html
+[2018-12-16T10:53:59.006] [INFO] default - GET 请求
+[2018-12-16T10:56:09.717] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T10:56:21.124] [INFO] default - GET 请求
+[2018-12-16T10:56:21.125] [INFO] default - search ==> null
+[2018-12-16T10:56:21.125] [INFO] default - query ==> {}
+[2018-12-16T10:56:21.125] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T10:56:21.125] [INFO] default - path ==> /lyjx.html
+[2018-12-16T10:56:21.125] [INFO] default - href ==> /lyjx.html
+[2018-12-16T10:56:21.329] [INFO] default - GET 请求
+[2018-12-16T11:00:44.678] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:00:51.513] [INFO] default - GET 请求
+[2018-12-16T11:00:51.513] [INFO] default - search ==> null
+[2018-12-16T11:00:51.513] [INFO] default - query ==> {}
+[2018-12-16T11:00:51.513] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:00:51.513] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:00:51.514] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:00:51.548] [INFO] default - GET 请求
+[2018-12-16T11:02:27.759] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:02:38.090] [INFO] default - GET 请求
+[2018-12-16T11:02:38.090] [INFO] default - search ==> null
+[2018-12-16T11:02:38.090] [INFO] default - query ==> {}
+[2018-12-16T11:02:38.090] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:02:38.090] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:02:38.091] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:09:51.716] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:09:59.469] [INFO] default - GET 请求
+[2018-12-16T11:09:59.469] [INFO] default - search ==> null
+[2018-12-16T11:09:59.470] [INFO] default - query ==> {}
+[2018-12-16T11:09:59.470] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:09:59.470] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:09:59.470] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:09:59.494] [INFO] default - GET 请求
+[2018-12-16T11:09:59.494] [INFO] default - search ==> null
+[2018-12-16T11:09:59.494] [INFO] default - query ==> {}
+[2018-12-16T11:09:59.494] [INFO] default - pathname ==> /favicon.ico
+[2018-12-16T11:09:59.494] [INFO] default - path ==> /favicon.ico
+[2018-12-16T11:09:59.494] [INFO] default - href ==> /favicon.ico
+[2018-12-16T11:11:14.711] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:11:26.772] [INFO] default - GET 请求
+[2018-12-16T11:11:26.772] [INFO] default - search ==> null
+[2018-12-16T11:11:26.772] [INFO] default - query ==> {}
+[2018-12-16T11:11:26.772] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:11:26.772] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:11:26.772] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:13:10.579] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:13:29.922] [INFO] default - GET 请求
+[2018-12-16T11:13:29.922] [INFO] default - search ==> null
+[2018-12-16T11:13:29.922] [INFO] default - query ==> {}
+[2018-12-16T11:13:29.922] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:13:29.922] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:13:29.922] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:15:03.188] [INFO] default - GET 请求
+[2018-12-16T11:15:03.189] [INFO] default - search ==> null
+[2018-12-16T11:15:03.189] [INFO] default - query ==> {}
+[2018-12-16T11:15:03.189] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:15:03.189] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:15:03.189] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:15:38.350] [INFO] default - GET 请求
+[2018-12-16T11:15:38.351] [INFO] default - search ==> null
+[2018-12-16T11:15:38.351] [INFO] default - query ==> {}
+[2018-12-16T11:15:38.351] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:15:38.351] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:15:38.351] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:16:26.071] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:17:20.192] [INFO] default - GET 请求
+[2018-12-16T11:17:20.193] [INFO] default - search ==> null
+[2018-12-16T11:17:20.193] [INFO] default - query ==> {}
+[2018-12-16T11:17:20.193] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:17:20.193] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:17:20.193] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:19:55.116] [INFO] default - GET 请求
+[2018-12-16T11:19:55.116] [INFO] default - search ==> null
+[2018-12-16T11:19:55.116] [INFO] default - query ==> {}
+[2018-12-16T11:19:55.117] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:19:55.117] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:19:55.117] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:20:22.195] [INFO] default - GET 请求
+[2018-12-16T11:21:41.266] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:22:31.165] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:23:51.148] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:24:41.004] [INFO] default - GET 请求
+[2018-12-16T11:24:41.005] [INFO] default - search ==> null
+[2018-12-16T11:24:41.005] [INFO] default - query ==> {}
+[2018-12-16T11:24:41.005] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:24:41.005] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:24:41.005] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:25:25.180] [INFO] default - GET 请求
+[2018-12-16T11:25:25.181] [INFO] default - search ==> null
+[2018-12-16T11:25:25.181] [INFO] default - query ==> {}
+[2018-12-16T11:25:25.181] [INFO] default - pathname ==> /img/favicon.ico
+[2018-12-16T11:25:25.181] [INFO] default - path ==> /img/favicon.ico
+[2018-12-16T11:25:25.181] [INFO] default - href ==> /img/favicon.ico
+[2018-12-16T11:25:33.377] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:27:26.771] [INFO] default - GET 请求
+[2018-12-16T11:27:26.771] [INFO] default - search ==> null
+[2018-12-16T11:27:26.771] [INFO] default - query ==> {}
+[2018-12-16T11:27:26.771] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:27:26.771] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:27:26.771] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:27:30.494] [INFO] default - GET 请求
+[2018-12-16T11:27:30.494] [INFO] default - search ==> null
+[2018-12-16T11:27:30.494] [INFO] default - query ==> {}
+[2018-12-16T11:27:30.494] [INFO] default - pathname ==> /favicon.ico
+[2018-12-16T11:27:30.494] [INFO] default - path ==> /favicon.ico
+[2018-12-16T11:27:30.494] [INFO] default - href ==> /favicon.ico
+[2018-12-16T11:27:30.506] [INFO] default - GET 请求
+[2018-12-16T11:27:30.506] [INFO] default - search ==> null
+[2018-12-16T11:27:30.506] [INFO] default - query ==> {}
+[2018-12-16T11:27:30.506] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:30.506] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:30.506] [INFO] default - href ==> /lyjx
+[2018-12-16T11:27:33.386] [INFO] default - GET 请求
+[2018-12-16T11:27:33.386] [INFO] default - search ==> null
+[2018-12-16T11:27:33.387] [INFO] default - query ==> {}
+[2018-12-16T11:27:33.387] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:33.387] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:33.387] [INFO] default - href ==> /lyjx
+[2018-12-16T11:27:35.180] [INFO] default - GET 请求
+[2018-12-16T11:27:35.180] [INFO] default - search ==> null
+[2018-12-16T11:27:35.180] [INFO] default - query ==> {}
+[2018-12-16T11:27:35.180] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:35.180] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:35.180] [INFO] default - href ==> /lyjx
+[2018-12-16T11:27:35.636] [INFO] default - GET 请求
+[2018-12-16T11:27:35.636] [INFO] default - search ==> null
+[2018-12-16T11:27:35.636] [INFO] default - query ==> {}
+[2018-12-16T11:27:35.636] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:35.636] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:35.636] [INFO] default - href ==> /lyjx
+[2018-12-16T11:27:35.819] [INFO] default - GET 请求
+[2018-12-16T11:27:35.819] [INFO] default - search ==> null
+[2018-12-16T11:27:35.819] [INFO] default - query ==> {}
+[2018-12-16T11:27:35.820] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:35.820] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:35.820] [INFO] default - href ==> /lyjx
+[2018-12-16T11:27:35.987] [INFO] default - GET 请求
+[2018-12-16T11:27:35.987] [INFO] default - search ==> null
+[2018-12-16T11:27:35.987] [INFO] default - query ==> {}
+[2018-12-16T11:27:35.987] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:35.987] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:35.987] [INFO] default - href ==> /lyjx
+[2018-12-16T11:27:47.430] [INFO] default - GET 请求
+[2018-12-16T11:27:47.430] [INFO] default - search ==> null
+[2018-12-16T11:27:47.430] [INFO] default - query ==> {}
+[2018-12-16T11:27:47.430] [INFO] default - pathname ==> /lyjx
+[2018-12-16T11:27:47.430] [INFO] default - path ==> /lyjx
+[2018-12-16T11:27:47.430] [INFO] default - href ==> /lyjx
+[2018-12-16T11:28:01.894] [INFO] default - GET 请求
+[2018-12-16T11:28:01.895] [INFO] default - search ==> null
+[2018-12-16T11:28:01.895] [INFO] default - query ==> {}
+[2018-12-16T11:28:01.895] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:28:01.895] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:28:01.895] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:35:00.372] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:42:27.966] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:45:07.933] [INFO] default - GET 请求
+[2018-12-16T11:45:07.933] [INFO] default - search ==> null
+[2018-12-16T11:45:07.933] [INFO] default - query ==> {}
+[2018-12-16T11:45:07.933] [INFO] default - pathname ==> /favicon.ico
+[2018-12-16T11:45:07.933] [INFO] default - path ==> /favicon.ico
+[2018-12-16T11:45:07.933] [INFO] default - href ==> /favicon.ico
+[2018-12-16T11:45:08.768] [INFO] default - GET 请求
+[2018-12-16T11:45:08.769] [INFO] default - search ==> null
+[2018-12-16T11:45:08.769] [INFO] default - query ==> {}
+[2018-12-16T11:45:08.769] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:45:08.769] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:45:08.769] [INFO] default - href ==> /api/getOne
+[2018-12-16T11:45:45.381] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:45:51.725] [INFO] default - GET 请求
+[2018-12-16T11:45:51.725] [INFO] default - search ==> null
+[2018-12-16T11:45:51.725] [INFO] default - query ==> {}
+[2018-12-16T11:45:51.726] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:45:51.726] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:45:51.726] [INFO] default - href ==> /api/getOne
+[2018-12-16T11:46:09.844] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:46:16.275] [INFO] default - GET 请求
+[2018-12-16T11:46:16.276] [INFO] default - search ==> null
+[2018-12-16T11:46:16.276] [INFO] default - query ==> {}
+[2018-12-16T11:46:16.276] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:46:16.276] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:46:16.276] [INFO] default - href ==> /api/getOne
+[2018-12-16T11:46:16.313] [INFO] default - GET 请求
+[2018-12-16T11:46:16.315] [INFO] default - search ==> null
+[2018-12-16T11:46:16.315] [INFO] default - query ==> {}
+[2018-12-16T11:46:16.315] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:46:16.315] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:46:16.315] [INFO] default - href ==> /api/getOne
+[2018-12-16T11:47:31.875] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:47:41.537] [INFO] default - GET 请求
+[2018-12-16T11:47:41.537] [INFO] default - search ==> null
+[2018-12-16T11:47:41.537] [INFO] default - query ==> {}
+[2018-12-16T11:47:41.537] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:47:41.537] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:47:41.537] [INFO] default - href ==> /api/getOne
+[2018-12-16T11:49:15.712] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:51:26.911] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:52:50.006] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:54:25.653] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:54:53.630] [INFO] default - GET 请求
+[2018-12-16T11:54:53.630] [INFO] default - search ==> null
+[2018-12-16T11:54:53.630] [INFO] default - query ==> {}
+[2018-12-16T11:54:53.630] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:54:53.630] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:54:53.630] [INFO] default - href ==> /api/getOne
+[2018-12-16T11:55:22.837] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:55:54.851] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:58:32.807] [INFO] default - Server running at http://127.0.0.1:8888/
+[2018-12-16T11:59:33.705] [INFO] default - GET 请求
+[2018-12-16T11:59:33.709] [INFO] default - search ==> null
+[2018-12-16T11:59:33.709] [INFO] default - query ==> {}
+[2018-12-16T11:59:33.709] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T11:59:33.709] [INFO] default - path ==> /lyjx.html
+[2018-12-16T11:59:33.709] [INFO] default - href ==> /lyjx.html
+[2018-12-16T11:59:37.198] [INFO] default - GET 请求
+[2018-12-16T11:59:37.198] [INFO] default - search ==> null
+[2018-12-16T11:59:37.199] [INFO] default - query ==> {}
+[2018-12-16T11:59:37.199] [INFO] default - pathname ==> /favicon.ico
+[2018-12-16T11:59:37.199] [INFO] default - path ==> /favicon.ico
+[2018-12-16T11:59:37.199] [INFO] default - href ==> /favicon.ico
+[2018-12-16T11:59:38.684] [INFO] default - GET 请求
+[2018-12-16T11:59:38.684] [INFO] default - search ==> null
+[2018-12-16T11:59:38.684] [INFO] default - query ==> {}
+[2018-12-16T11:59:38.684] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T11:59:38.684] [INFO] default - path ==> /api/getOne
+[2018-12-16T11:59:38.684] [INFO] default - href ==> /api/getOne
+[2018-12-16T12:02:06.163] [INFO] default - GET 请求
+[2018-12-16T12:02:06.167] [INFO] default - search ==> null
+[2018-12-16T12:02:06.167] [INFO] default - query ==> {}
+[2018-12-16T12:02:06.167] [INFO] default - pathname ==> /lyjx.html
+[2018-12-16T12:02:06.167] [INFO] default - path ==> /lyjx.html
+[2018-12-16T12:02:06.167] [INFO] default - href ==> /lyjx.html
+[2018-12-16T12:02:10.064] [INFO] default - GET 请求
+[2018-12-16T12:02:10.064] [INFO] default - search ==> null
+[2018-12-16T12:02:10.064] [INFO] default - query ==> {}
+[2018-12-16T12:02:10.064] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T12:02:10.064] [INFO] default - path ==> /api/getOne
+[2018-12-16T12:02:10.064] [INFO] default - href ==> /api/getOne
+[2018-12-16T12:04:33.615] [INFO] default - GET 请求
+[2018-12-16T12:04:33.620] [INFO] default - search ==> null
+[2018-12-16T12:04:33.620] [INFO] default - query ==> {}
+[2018-12-16T12:04:33.620] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T12:04:33.620] [INFO] default - path ==> /api/getOne
+[2018-12-16T12:04:33.620] [INFO] default - href ==> /api/getOne
+[2018-12-16T12:05:08.094] [INFO] default - GET 请求
+[2018-12-16T12:05:08.094] [INFO] default - search ==> null
+[2018-12-16T12:05:08.094] [INFO] default - query ==> {}
+[2018-12-16T12:05:08.094] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T12:05:08.094] [INFO] default - path ==> /api/getOne
+[2018-12-16T12:05:08.094] [INFO] default - href ==> /api/getOne
+[2018-12-16T12:12:02.382] [INFO] default - GET 请求
+[2018-12-16T12:12:02.387] [INFO] default - search ==> null
+[2018-12-16T12:12:02.387] [INFO] default - query ==> {}
+[2018-12-16T12:12:02.387] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T12:12:02.387] [INFO] default - path ==> /api/getOne
+[2018-12-16T12:12:02.387] [INFO] default - href ==> /api/getOne
+[2018-12-16T12:12:59.164] [INFO] default - GET 请求
+[2018-12-16T12:12:59.168] [INFO] default - search ==> null
+[2018-12-16T12:12:59.168] [INFO] default - query ==> {}
+[2018-12-16T12:12:59.169] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T12:12:59.169] [INFO] default - path ==> /api/getOne
+[2018-12-16T12:12:59.169] [INFO] default - href ==> /api/getOne
+[2018-12-16T12:48:56.978] [INFO] default - GET 请求
+[2018-12-16T12:48:56.982] [INFO] default - search ==> null
+[2018-12-16T12:48:56.982] [INFO] default - query ==> {}
+[2018-12-16T12:48:56.982] [INFO] default - pathname ==> /api/getOne
+[2018-12-16T12:48:56.982] [INFO] default - path ==> /api/getOne
+[2018-12-16T12:48:56.982] [INFO] default - href ==> /api/getOne

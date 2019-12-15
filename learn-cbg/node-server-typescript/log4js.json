@@ -1,0 +1,14 @@
+{
+  "appenders": {
+    "everything": { 
+        "type": "file",
+        "filename": "./logs/logs.log" 
+    }
+  },
+  "categories": {
+    "default": { 
+        "appenders": [ "everything" ],
+        "level": "debug" 
+    }
+  }
+}

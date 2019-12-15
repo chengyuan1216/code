@@ -1,0 +1,12 @@
+{
+  "name": "node-nest-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init" : "nest new"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
