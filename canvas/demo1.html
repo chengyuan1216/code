@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>canvas</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    canvas {
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 获取画布及绘图上下文
+    var oC = document.getElementById('canvas')
+    var oGc = oC.getContext('2d')
+
+    // 设置画布
+    var width = document.body.offsetWidth
+    var height = document.body.offsetHeight
+    oC.width = width
+    oC.height = height
+
+    // 绘制矩形
+    oGc.fillStyle = 'red'
+    oGc.lineWidth=10
+    oGc.strokeStyle = "green"
+    oGc.fillRect(200,200,100,100)
+    oGc.strokeRect(0, 0, 100,100)
+
+  </script>
+</body>
+</html>
+  

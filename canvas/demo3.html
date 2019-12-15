@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>canvas</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <input id="save" type="submit" value="保存">
+  <input id="restore" type="reset" value="恢复">
+  <canvas id="canvas"></canvas>
+  <script>
+    // 获取画布及绘图上下文
+    var oC = document.getElementById('canvas')
+    var context = oC.getContext('2d');
+    // 初始字体大小
+    var fontSize = 16;
+    // 初始文字填充
+    context.font = fontSize + 'px arial';
+    context.fillText('观察字号大小', 10, 80);
+
+    // 按钮事件
+    save.addEventListener('click', function () {
+        context.clearRect(0, 0, 300, 150);
+        // 状态继续存储
+        context.save();
+        // 字号递增
+        fontSize++;
+        context.font = fontSize + 'px arial';
+        context.fillText('观察字号大小', 10, 80);        
+    });
+    restore.addEventListener('click', function () {
+        context.clearRect(0, 0, 300, 150);
+        // 字号递减
+        // fontSize--;
+        // 恢复上一次状态
+        context.restore();
+        // 看看现在字号大小
+        context.fillText('观察字号大小', 10, 80);
+    });
+  </script>
+</body>
+</html>
+  
