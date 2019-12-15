@@ -1,33 +1,44 @@
-class Response {
-	constructor(code, msg, data) {
+type callback = (res: any, data: any) => void
+export default class Response {
+	private code: number
+	private msg: string
+	private data: any
+	public static success: callback
+	public static error: callback
+	public static exception: callback
+	public static SUCCESS: ResponseStatus
+	public static ERROR: ResponseStatus
+	public static EXCEPTION: ResponseStatus
+
+	constructor(code: number, msg: string, data: any) {
 		this.code = code
 		this.msg = msg
-    	this.data = data
-    	console.log("返回值", JSON.stringify(data))
+		this.data = data
+		console.log("返回值", JSON.stringify(data))
 	}
 
-	setCode(code) {
+	setCode(code: number) {
 		this.code = code
 	}
 
-	getCode(code) {
+	getCode() {
 		return this.code
 	}
 
-	setMsg(code) {
-		this.code = code
+	setMsg(msg: string) {
+		this.msg = msg
 	}
 
-	getMsg(code) {
-		return this.code
+	getMsg() {
+		return this.msg
 	}
 
-	setData(data) {
-		this.code = code
+	setData(data: any) {
+		this.data = data
 	}
 
-	getData(data) {
-		return this.code
+	getData() {
+		return this.data
 	}
 }
 
@@ -50,9 +61,15 @@ Response.exception = (res, data) => {
 		let result = JSON.stringify(new Response(Response.EXCEPTION.code, Response.EXCEPTION.msg, data))
 		res.end(result)
 		throw new Error(result)
-	} catch(e) {
+	} catch (e) {
 		console.error(e)
 	}
+}
+
+
+type ResponseStatus = {
+	code: number,
+	msg: string
 }
 
 Response.SUCCESS = {
@@ -69,5 +86,3 @@ Response.EXCEPTION = {
 	code: -2,
 	msg: '请求出现异常'
 }
-
-module.exports = Response

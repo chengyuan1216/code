@@ -10,7 +10,7 @@
     "es-checker": "node .\\node_modules\\es-checker\\bin\\check.js",
     "start": "npm run build && npm run dev && type-check:watch",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "keywords": [
     "demo"
