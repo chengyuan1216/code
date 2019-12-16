@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/zrender/4.1.1/zrender.js"></script>
+</head>
+
+<body>
+  <div style="width: 800px; height: 800px;" id="main"> </div>
+  <script>
+    // 初始化画布
+    var zr = zrender.init(document.getElementById('main'))
+
+    // 画一个圆
+    var circle = new zrender.Circle({
+      // 是否进行裁剪。
+      culling: false,
+      // 鼠标移到元素上时的鼠标样式
+      cursor: 'text',
+      // 图形是否可拖曳。
+      draggable: true,
+      // 图形是否不可见，为 true 时不绘制图形，但是仍能触发鼠标事件。
+      invisible: false,
+      shape: {
+        cx: 150,
+        cy: 50,
+        r: 40
+      },
+      style: {
+        fill: 'none',
+        stroke: '#F00'
+      }
+    });
+
+    console.log('circle 对象', circle)
+    console.log('zrender', zrender)
+
+    // 将圆添加到画布
+    zr.add(circle);
+  </script>
+</body>
+
+</html>

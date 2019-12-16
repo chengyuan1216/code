@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/zrender/4.1.1/zrender.js"></script>
+</head>
+
+<body>
+  <div style="width: 800px; height: 200px;" id="main"> </div>
+  <button onclick="attr()">attr</button>
+  <button onclick="hide()">hide</button>
+  <button onclick="show()">show</button>
+  <button onclick="setClipPath()">setClipPath</button>
+  <button onclick="removeClipPath()">removeClipPath</button>
+  <script>
+    // 初始化画布
+    var zr = zrender.init(document.getElementById('main'))
+
+    // 画一个圆
+    var circle = new zrender.Circle({
+      shape: {
+        cx: 0,
+        cy: 0,
+        r: 40
+      },
+      style: {
+        fill: 'none',
+        stroke: '#F00'
+      },
+      // 事件
+      afterUpdate: function () {
+        console.log('afterUpdate')
+      },
+      beforeUpdate: function () {
+        console.log('beforeUpdate')
+      }
+
+    });
+
+
+    var group = new zrender.Group();
+    group.add(circle)
+
+
+    // 遍历子元素
+    group.traverse(function (child) {
+      console.log(child)
+    }, group)
+
+    // console.log(group)
+
+
+    // 将圆添加到画布
+    zr.add(group);
+
+    function attr() {
+      // attr修改图形属性 position平移
+      circle.attr('position', [40, 0]);
+    }
+
+    // 隐藏
+    function hide() {
+      circle.hide()
+    }
+
+    // 显示
+    function show() {
+      circle.show()
+    }
+
+    // 裁剪
+    function setClipPath() {
+      circle.setClipPath(new zrender.Circle({
+        shape: {
+          cx: 0,
+          cy: 0,
+          r: 20
+        }
+      }))
+    }
+
+    // 取消裁剪
+    function removeClipPath() {
+      circle.removeClipPath()
+    }
+  </script>
+</body>
+
+</html>
