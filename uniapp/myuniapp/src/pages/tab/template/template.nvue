@@ -1,0 +1,25 @@
+<template>
+    <view class="uni-container">
+        <text class="hello-text">template</text>
+    </view>
+</template>
+<script>
+    export default {
+        components: {
+        },
+        data() {
+            return {
+
+            }
+        },
+        onShareAppMessage() {
+
+        },
+        onNavigationBarButtonTap(e) {
+
+        },
+        methods: {
+
+        }
+    }
+</script>
