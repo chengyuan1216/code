@@ -1,8 +1,7 @@
 {
-	"pages": [ 
-		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/tab/component/component",
+			"path": "pages/tabBar/component/component",
 			"style": {
 				"navigationBarTitleText": "内置组件",
 				"app-plus": {
@@ -19,7 +18,7 @@
 			}
 		},
 		{
-			"path": "pages/tab/API/API",
+			"path": "pages/tabBar/API/API",
 			"style": {
 				"navigationBarTitleText": "接口",
 				"app-plus": {
@@ -35,7 +34,7 @@
 			}
 		},
 		{
-			"path": "pages/tab/template/template",
+			"path": "pages/tabBar/template/template",
 			"style": {
 				"navigationBarTitleText": "模版",
 				"app-plus": {
@@ -51,7 +50,7 @@
 			}
 		},
 		{
-			"path": "pages/tab/extUI/extUI",
+			"path": "pages/tabBar/extUI/extUI",
 			"style": {
 				"navigationBarTitleText": "扩展组件",
 				"app-plus": {
@@ -69,8 +68,64 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "index"
 			}
+		},
+		{
+			"path": "pages/component/view/view",
+			"style": {
+				"navigationBarTitleText": "view"
+			}
+		},
+		{
+			"path": "pages/component/scroll-view/scroll-view",
+			"style": {
+				"navigationBarTitleText": "scroll-view"
+			}
+		},
+		{
+			"path": "pages/component/navigator/navigator",
+			"style": {
+				"navigationBarTitleText": "navigator"
+			}
+		},
+		{
+			"path": "pages/component/map/map",
+			"style": {
+				"navigationBarTitleText": "map"
+			}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "pages/template/",
+			"pages": [
+				{
+					"path": "nav-default/nav-default",
+					"style": {
+						"navigationBarTitleText": "默认导航栏"
+					}
+				},				
+				// #ifdef APP-PLUS || H5
+				{
+					"path": "nav-button/nav-button",
+					"style": {
+						"navigationBarTitleText": "导航栏带自定义按钮",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [{
+										"type": "share"
+									},
+									{
+										"type": "favorite"
+									}
+								]
+							}
+						}
+					}
+				}
+				// #endif
+			]
 		}
 	],
 	"globalStyle": {
@@ -87,23 +142,23 @@
 		"borderStyle": "black",
 		"backgroundColor": "#F8F8F8",
 		"list": [{
-				"pagePath": "pages/tab/component/component",
+				"pagePath": "pages/tabBar/component/component",
 				"iconPath": "static/component.png",
 				"selectedIconPath": "static/componentHL.png",
 				"text": "内置组件"
 			},
 			{
-				"pagePath": "pages/tab/API/API",
+				"pagePath": "pages/tabBar/API/API",
 				"iconPath": "static/api.png",
 				"selectedIconPath": "static/apiHL.png",
 				"text": "接口"
 			}, {
-				"pagePath": "pages/tab/extUI/extUI",
+				"pagePath": "pages/tabBar/extUI/extUI",
 				"iconPath": "static/extui.png",
 				"selectedIconPath": "static/extuiHL.png",
 				"text": "扩展组件"
 			}, {
-				"pagePath": "pages/tab/template/template",
+				"pagePath": "pages/tabBar/template/template",
 				"iconPath": "static/template.png",
 				"selectedIconPath": "static/templateHL.png",
 				"text": "模板"

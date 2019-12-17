@@ -1,6 +1,6 @@
 <template>
     <view class="uni-container">
-        <text class="hello-text">API</text>
+        <text class="hello-text">1</text>
     </view>
 </template>
 <script>
@@ -11,6 +11,10 @@
             return {
 
             }
+        },
+        mounted() {
+            let app = getApp()
+            console.log(app)
         },
         onShareAppMessage() {
 

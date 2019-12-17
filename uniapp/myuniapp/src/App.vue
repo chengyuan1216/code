@@ -8,19 +8,18 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
-		},
-		onError: function(err) {
-			console.error('App onError',err)
-		},
-		onUniNViewMessage: function() {
-			console.log('App onUniNViewMessage')
-		},
-		globalData: {
-			test: 'asd'
 		}
 	}
 </script>
 
 <style>
 	/*每个页面公共css */
+	/* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
+	@import './common/uni.css';
+	page {
+	    background-color: #F4F5F6;
+	    height: 100%;
+	    font-size: 28upx;
+	    line-height: 1.8;
+	}
 </style>
