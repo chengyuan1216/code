@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title></title>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .play {
+      display: inline-block;
+      width: 80%;
+      height: 80%;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #video,
+    #mask {
+      position: fixed;
+      top: 50%;
+      left: -2000px;
+      z-index: 99990;
+    }
+
+    #mask {
+      z-index: 999999999;
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    #video::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
+
+    /*video默认全屏按钮*/
+    #video::-webkit-media-controls-fullscreen-button {
+      display: none !important;
+    }
+
+    /*video默认aduio音量按钮*/
+    #video::-webkit-media-controls-mute-button {
+      display: none !important;
+    }
+
+    /*video默认setting按钮*/
+    #video::-internal-media-controls-overflow-button {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <span class="play" start-time="0"
+      video-src="https://vdept.bdstatic.com/44387655534272764d636c69624e3579/65354c766d693471/6641723d8d534d36e0fcc88d64207542fd276ab4642a91c2a14cf5139166ce06718d565c4ec3ea9d70027a31fb80445e.mp4?auth_key=1576681326-0-0-f968c919a23d4dcf2459c4b6dc5c3c2e">视频1</span>
+  </div>
+  <div class="wrap"><span class="play" start-time="0"
+      video-src="https://vdept.bdstatic.com/52677573616a334178634562794c5738/38647332474a3836/c3b53b890795f7a123921a9dab9416bd672bfedb5ff34be168cfebea8637722d3239de7a01fc5b700c2c1186cbfc1e45.mp4?auth_key=1576684822-0-0-6b004f98f6e0318aad196b8c5eddc387">视频2</span>
+  </div>
+  <div class="wrap"><span class="play" start-time="0"
+      video-src="https://vdept.bdstatic.com/587a5653337045366169434e71526e6e/564570704464714d/6553c07c7906cf400214d69bf1e75529a83ebbe5f70edd997643704e58090e74d4ee1e34ef93254138fe9b20ee48212b.mp4?auth_key=1576684856-0-0-3ec6a99bdc8283147576c2b8d6399611">视频3</span>
+  </div>
+  <div class="wrap"><span class="play" start-time="0"
+      video-src="https://vdept.bdstatic.com/54785855564d59503179615676677555/486d6a6831717674/43aa9993f5b7aeb177366cea2107ecfde3b889518187c962ca9954cfd60130afc4da7d6c925f49f71bed96fb7f3e5150.mp4?auth_key=1576684888-0-0-8bd684cdebe7a78ac902f140b7f0470c">视频4</span>
+  </div>
+  <div class="wrap"><span class="play" start-time="0"
+      video-src="https://vdept.bdstatic.com/53456d796b5a613447513664374d6841/556b647a574a4671/205e9259c3256317a287338a6d94877ed37074cf370a895c61c299b3a63453c5ba88877d69bd1c6a4e00e8ab928a59031074b5f68f6ed12128a64e8d177d4945.mp4?auth_key=1576684929-0-0-b3711ea5343ec229bc60d1e44a506f7d">视频5</span>
+  </div>
+
+  <!-- 
+    x5-video-player-fullscreen="false"
+   -->
+  <video id="video" src="" controls="controls" controlsList="nofullscreen nodownload noremote footbar" preload="auto"
+    x5-video-player-type="h5-page" autoplay="true" webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow"
+    x5-video-orientation="portraint" style="object-fit:fill">
+  </video>
+  <div id="mask"></div>
+
+  <script>
+    function VideoPlayer() {
+      this.create()
+    }
+
+    VideoPlayer.prototype = {
+      constructor: VideoPlayer,
+      create() {
+        this.currentPlay = null
+        this.isActive = false
+        this.oPlay = null
+        this.oMask = null
+        this.video = document.getElementById('video')
+        this._addTriggers()
+        this._addPlayOrPauseEvent()
+        this.addUpdateEvent()
+      },
+
+      _addTriggers() {
+        this.oPlay = document.querySelectorAll('.play')
+        Array.prototype.slice.call(this.oPlay).forEach(element => {
+          element.onclick = (ev) => {
+            let target = this.currentPlay = ev.target
+            this.isActive = true
+            this.video.src = target.getAttribute('video-src')
+            this.update(target)
+            this.play()
+          }
+        })
+      },
+
+      update() {
+        if (this.currentPlay) {
+          let rect = this.currentPlay.getBoundingClientRect()
+          this.video.width = this.currentPlay.offsetWidth
+          this.video.height = this.currentPlay.offsetHeight
+          this.oMask.style.width = this.currentPlay.offsetWidth + 'px'
+          this.oMask.style.height = this.currentPlay.offsetHeight + 'px'
+          if (rect.top < 1) {
+            this.oMask.style.left = this.video.style.left = '-2000px'
+            this.pause()
+          } else {
+            this.oMask.style.left = this.video.style.left = rect.left + 'px'
+            this.oMask.style.top = this.video.style.top = rect.top + 'px'
+          }
+        }
+      },
+
+      addUpdateEvent() {
+        document.addEventListener('scroll', () => {
+          this.update()
+        })
+      },
+
+      removeUpdateEvent() {
+        document.removeEventListener('scroll', () => {
+          this.update()
+        })
+      },
+
+      _addPlayOrPauseEvent() {
+        this.oMask = document.getElementById('mask')
+        this.oMask.onclick = () => {
+          if (this.isActive) {
+            this.pause()
+          } else {
+            this.play()
+          }
+        }
+      },
+
+      play() {
+        this.video.play()
+        this.isActive = true
+      },
+
+      pause() {
+        this.video.pause()
+        this.isActive = false
+      },
+
+      destory() {
+        this.removeUpdateEvent()
+      }
+    }
+
+    new VideoPlayer()
+  </script>
+</body>
+
+</html>

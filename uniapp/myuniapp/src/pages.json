@@ -97,36 +97,7 @@
 		}
 	],
 	"subPackages": [
-		{
-			"root": "pages/template/",
-			"pages": [
-				{
-					"path": "nav-default/nav-default",
-					"style": {
-						"navigationBarTitleText": "默认导航栏"
-					}
-				},				
-				// #ifdef APP-PLUS || H5
-				{
-					"path": "nav-button/nav-button",
-					"style": {
-						"navigationBarTitleText": "导航栏带自定义按钮",
-						"app-plus": {
-							"titleNView": {
-								"buttons": [{
-										"type": "share"
-									},
-									{
-										"type": "favorite"
-									}
-								]
-							}
-						}
-					}
-				}
-				// #endif
-			]
-		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
