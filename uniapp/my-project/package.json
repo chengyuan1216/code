@@ -35,7 +35,7 @@
     "@dcloudio/uni-stat": "^2.0.0-24220191115006",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
-    "vue": "^2.6.10",
+    "vue": "2.6.10",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -51,10 +51,11 @@
     "@vue/cli-plugin-babel": "3.5.1",
     "@vue/cli-service": "^4.1.0",
     "babel-plugin-import": "^1.11.0",
+    "cross-env": "^6.0.3",
     "mini-types": "*",
     "miniprogram-api-typings": "^2.8.0-2",
     "postcss-comment": "^2.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "2.6.10"
   },
   "browserslist": [
     "Android >= 4",
