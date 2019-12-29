@@ -2,7 +2,10 @@
   "presets": [
     // 设置typescript
     [
-      "@babel/preset-typescript"
+      "@babel/preset-typescript",
+      {
+        "allExtensions": true // 支持.js和.ts文件
+      }
     ],
     [
       "@babel/preset-env",
