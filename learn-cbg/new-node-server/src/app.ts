@@ -2,11 +2,10 @@
 // 系统模块
 import express, { Application, Request, Response, NextFunction } from 'express'
 import context from './context'
-import mysql from './config/mysql.js'
+import initMysql from './config/mysql.js'
 import env from './config/env'
 import Logger from './utils/log'
 const bodyParser = require('body-parser')
-
 
 //日志
 // const log4js = require("log4js");
@@ -29,7 +28,7 @@ app.all(['*.js', '*.html', '*.css'], function (req: Request, res: Response, next
 app.use(bodyParser.json())
 
 context.init(app)
-mysql.init()
+initMysql()
 
 app.listen(env.port, () => {
 	(Logger as ILogger).success(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)

@@ -1,17 +1,18 @@
 import { Get, Inject, Controller } from '../anotation/index'
-import Response from '../dto/Response'
-import express from 'express'
+import IResponse from '../dto/Response'
+import { Request, Response } from 'express'
+import { exec } from '../dao/sql'
 
 @Inject([])
-@Controller()
+@Controller('/')
 export default class CardApi {
-	constructor() {
-	}
-
 	@Get('/getCardList')
-	list(req: express.Request, res: express.Response) {
-		Response.success(res, [
-			{ id: 1, name: 'test' },
-		])
+	async list(req: Request, res: Response) {
+		try {
+			const [rows, fields] = await exec('SELECT * FROM card')
+			IResponse.success(res, rows)
+		} catch (err) {
+			IResponse.error(res, err)
+		}
 	}
 }	
