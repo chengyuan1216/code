@@ -10,7 +10,10 @@
     "es-checker": "node .\\node_modules\\es-checker\\bin\\check.js",
     "start": "npm run build && npm run dev && type-check:watch",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch"
+    "type-check:watch": "npm run type-check -- --watch",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "serve": "nodemon --inspect ./dist/app.js"
   },
   "keywords": [
     "demo"
@@ -33,6 +36,7 @@
     "express": "^4.17.1",
     "log4js": "^3.0.6",
     "mysql": "^2.16.0",
+    "nodemon": "^2.0.2",
     "querystring": "^0.2.0",
     "typescript": "^3.7.3"
   },

@@ -1,4 +1,6 @@
 declare interface ILogger {
-  i(msg: string): void
+  info(msg: string): void
+  error(msg: string): void
+  success(msg: string): void
 }
 // export default Logger

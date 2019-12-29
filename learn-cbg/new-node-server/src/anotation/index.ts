@@ -1,16 +1,25 @@
 import * as GlobalConst from '../const/global'
-// service层注解
-export let Service = (serviceName: any): any => {
-	return function (target: any) {
-
-	}
-}
-
 // api层注解
-export let Controller = (serviceName: any) => {
+export let Controller = (path?: string): any => {
 	return function (target: any) {
+		target.controller = path
 	}
 }
+
+// service层注解
+export let Service = (name: string): any => {
+	return function (target: any) {
+		target.service = name
+	}
+}
+
+// service层注解
+export let Dao = (name: string): any => {
+	return function (target: any) {
+		target.dao = name
+	}
+}
+
 
 // Get请求
 export let Get = (url: string) => {

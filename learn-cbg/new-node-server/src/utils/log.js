@@ -1,10 +1,13 @@
 const chalk = require('chalk')
 
 export default {
-  i(msg) {
+  info(msg) {
+    console.log(chalk.green(msg))
+  },
+  error(msg) {
     console.log(chalk.red(msg))
   },
-  e() {
-    console.log(msg)
+  success(msg) {
+    console.log(chalk.green(msg))
   }
 }

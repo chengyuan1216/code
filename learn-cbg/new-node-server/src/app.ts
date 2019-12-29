@@ -32,5 +32,5 @@ context.init(app)
 mysql.init()
 
 app.listen(env.port, () => {
-	(Logger as ILogger).i(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
+	(Logger as ILogger).success(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
 })

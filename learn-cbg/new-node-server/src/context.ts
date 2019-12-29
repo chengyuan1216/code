@@ -24,6 +24,14 @@ class AppContext {
 		return this.controller
 	}
 
+	getServices() {
+		return this.service
+	}
+
+	getDaos() {
+		return this.dao
+	}
+
 	// 动态引入文件
 	dynamicRequrie(path: string) {
 		let map: contextMap = {}
@@ -49,18 +57,25 @@ class AppContext {
 			constructor.inject.forEach((injectName: any) => {
 				Object.defineProperty(instance, injectName, {
 					get() {
-						return context.dao[injectName] || context.service[injectName] || context.api[injectName]
+						return context.dao[injectName] || context.service[injectName] || context.controller[injectName]
 					}
 				})
 			})
 		}
 	}
 
-	registerApiRouter() {
+	// Controller
+	registerController() {
 		let { app, inject, dynamicRequrie } = this
-		let apiMap = dynamicRequrie(path.resolve(__dirname, './api'))
+		let apiMap = dynamicRequrie(path.resolve(__dirname, './controller'))
 		Object.keys(apiMap).map(apiName => {
 			let ApiConstructor: any = apiMap[apiName].default
+
+			// 使用Controller修饰器的类才会注册路由
+			if (ApiConstructor.controller === undefined) {
+				return
+			}
+
 			let apiInstance = new ApiConstructor()
 			this.controller[apiName] = apiInstance
 
@@ -86,6 +101,30 @@ class AppContext {
 		})
 	}
 
+	// Service
+	registerService() {
+		let { inject, dynamicRequrie } = this
+		let serviceMap = dynamicRequrie(path.resolve(__dirname, './service'))
+		Object.keys(serviceMap).forEach(serviceName => {
+			let ServiceConstructor: any = serviceMap[serviceName]
+			if (ServiceConstructor.service !== undefined) {
+				this.service[serviceName] = new ServiceConstructor()
+				inject(ServiceConstructor, this.service[serviceName])
+			}
+		})
+	}
+
+	// Dao
+	registerDao() {
+		let { dynamicRequrie } = this
+		let daoMap: any = dynamicRequrie(path.resolve(__dirname, './dao'))
+		Object.keys(daoMap).forEach(daoName => {
+			let Constructor: any = daoMap[daoName]
+			if (Constructor.dao !== undefined) {
+				this.dao[daoName] = new Constructor()
+			}
+		})
+	}
 
 	// 静态文件路由
 	registerStaticFileRouter() {
@@ -97,11 +136,13 @@ class AppContext {
 
 AppContext.init = function (app: Application) {
 	let appContext = new AppContext(app)
-	// appContext.registerService(app)
-	appContext.registerApiRouter()
-	// appContext.registerDao(app)
+	appContext.registerDao()
+	appContext.registerService()
+	appContext.registerController()
 	appContext.registerStaticFileRouter()
 	console.log('controller', appContext.getControllers())
+	console.log('service', appContext.getServices())
+	console.log('dao', appContext.getDaos())
 }
 
 export default AppContext
