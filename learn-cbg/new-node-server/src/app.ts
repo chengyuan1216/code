@@ -3,13 +3,14 @@ import express, { Application, Request, Response, NextFunction } from 'express'
 import context from './context'
 import mysql from './config/mysql.js'
 import env from './config/env'
+import Logger from './utils/logger'
 const bodyParser = require('body-parser')
 
 //日志
-const log4js = require("log4js");
-const log4js_config = require("../log4js.json");
-log4js.configure(log4js_config)
-const Logger = log4js.getLogger()
+// const log4js = require("log4js");
+// const log4js_config = require("../log4js.json");
+// log4js.configure(log4js_config)
+// const Logger = log4js.getLogger()
 
 const app: Application = express()
 app.set('express', express)
@@ -29,5 +30,6 @@ context.init(app)
 mysql.init()
 
 app.listen(env.port, () => {
-	console.log(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
+	// log.i(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
+	Logger.i(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
 })
