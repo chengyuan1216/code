@@ -1,6 +1,10 @@
-import chalk from 'chalk'
+const chalk = require('chalk')
+
 export default {
-  i(message) {
-    console.log(message)
+  i(msg) {
+    console.log(chalk.red(msg))
+  },
+  e() {
+    console.log(msg)
   }
 }

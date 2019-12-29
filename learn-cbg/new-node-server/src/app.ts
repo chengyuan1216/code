@@ -1,10 +1,12 @@
+/// <reference path="./types/log.d.ts"/>
 // 系统模块
 import express, { Application, Request, Response, NextFunction } from 'express'
 import context from './context'
 import mysql from './config/mysql.js'
 import env from './config/env'
-import Logger from './utils/logger'
+import Logger from './utils/log'
 const bodyParser = require('body-parser')
+
 
 //日志
 // const log4js = require("log4js");
@@ -30,6 +32,5 @@ context.init(app)
 mysql.init()
 
 app.listen(env.port, () => {
-	// log.i(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
-	Logger.i(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
+	(Logger as ILogger).i(`服务启动成功 ==> http://${env.hostname}:${env.port}/`)
 })
