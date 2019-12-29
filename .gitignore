@@ -1,3 +1,4 @@
 /learn-cbg/**/node_modules
 /html/video/node_modules
 /html/video/.vscode
+/learn-cbg/new-node-server/dist
