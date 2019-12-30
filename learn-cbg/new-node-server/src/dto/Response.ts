@@ -42,19 +42,19 @@ export default class Response {
 	}
 }
 
-Response.success = (res, data: any) => {
+Response.success = (res, data?: any) => {
 	res.statusCode = 200
 	res.setHeader('Content-Type', 'text/json;charset=utf-8')
 	res.end(JSON.stringify(new Response(Response.SUCCESS.code, Response.SUCCESS.msg, data)))
 }
 
-Response.error = (res, data: any) => {
+Response.error = (res, data?: any) => {
 	res.statusCode = 200
 	res.setHeader('Content-Type', 'text/json;charset=utf-8')
 	res.end(JSON.stringify(new Response(Response.ERROR.code, Response.ERROR.msg, data)))
 }
 
-Response.exception = (res, data: any) => {
+Response.exception = (res, data?: any) => {
 	try {
 		res.statusCode = 200
 		res.setHeader('Content-Type', 'text/json;charset=utf-8')

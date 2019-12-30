@@ -95,7 +95,7 @@ class AppContext {
 							fn.call(apiInstance, req, res, next)
 						})
 					});
-					(app as any)[requestMethod](requestUrl, ...middleWares)
+					(app as any)[requestMethod](ApiConstructor.controller + requestUrl, ...middleWares)
 				}
 			})
 		})
