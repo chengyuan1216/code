@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const {getEntry, log} = require('../build/util')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { getEntry, log } = require('../build/util')
 const merge = require('webpack-merge')
 
 const defaultArgs = {
@@ -23,37 +23,37 @@ module.exports = (args = {}) => {
         devtool: 'inline-source-map',
         // 入口
         entry: {
-          ...entry
+            ...entry
         },
         // 输出
         output: {
-          path: path.resolve(process.cwd(), 'dist'),
-          filename: '[name].js'
+            path: path.resolve(process.cwd(), 'dist'),
+            filename: '[name].js'
         },
         resolve: {
-          // 别名
-          alias: {
-            '@': path.resolve(process.cwd(), 'src')
-          }
+            // 别名
+            alias: {
+                '@': path.resolve(process.cwd(), 'src')
+            }
         },
         module: {
-          rules: [
-            {
-              test: /.ejs$/,
-              loader: ['ejs-loader']
-            },
-            {
-              test: /.css$/,
-              loader:[
-                'style-loader',
-                'css-loader'
-              ]
-            }
-          ]
+            rules: [
+                {
+                    test: /.ejs$/,
+                    loader: ['ejs-loader']
+                },
+                {
+                    test: /.css$/,
+                    loader: [
+                        'style-loader',
+                        'css-loader'
+                    ]
+                }
+            ]
         },
         plugins: [
-          new CleanWebpackPlugin(),
-          ...htmlTemplatePlugin
+            new CleanWebpackPlugin(),
+            ...htmlTemplatePlugin
         ]
     }
 
@@ -84,9 +84,9 @@ module.exports = (args = {}) => {
                 // TODO
                 historyApiFallback: true,
                 // 热重载
-                hot: true, 
+                hot: true,
                 // true for self-signed, object for cert authority
-                https: false, 
+                https: false,
                 // only errors & warns on hot reload
                 noInfo: true
             }

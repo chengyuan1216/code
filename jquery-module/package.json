@@ -6,6 +6,8 @@
   "scripts": {
     "b:build": "node ./build/build.js",
     "b:watch": "node ./build/build.js --watch",
+    "b:dev": "node ./build/build.js --dev",
+    "b:middleware": "node ./build/build.js --middleware",
     "c:build": "webpack --config ./config/webpack.config.js",
     "c:watch": "webpack --config ./config/webpack.config.js  --env._watch",
     "c:dev": "webpack-dev-server --config ./config/webpack.config.js  --env._dev"
@@ -18,11 +20,13 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.1",
     "ejs-loader": "^0.3.5",
+    "express": "^4.17.1",
     "html-webpack-plugin": "^3.2.0",
     "minimist": "^1.2.0",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.2.2"
   }
