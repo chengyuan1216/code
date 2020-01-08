@@ -3,3 +3,5 @@
 /html/video/.vscode
 /learn-cbg/new-node-server/dist
 /jquery-module/node_modules
+/promise/node_modules
+/promise/dist
