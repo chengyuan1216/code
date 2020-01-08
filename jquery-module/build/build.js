@@ -83,6 +83,14 @@ if (args.watch) {
 } else if (args.middleware) {
   // middleware
   // TODO 热重载不起作用
+  Object.keys(config.entry).forEach(key => {
+    config.entry[key] = [
+      // 'webpack-hot-middleware/client',
+      config.entry[key]
+    ]
+  })
+  log('entry', config.entry)
+
   config = merge(config, {
     plugins: [
       new webpack.NamedModulesPlugin(),
