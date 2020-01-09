@@ -1,0 +1,18 @@
+{
+  "name": "html-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "es2015",
+  "scripts": {
+    "watch": "webpack -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}

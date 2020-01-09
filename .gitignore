@@ -5,3 +5,5 @@
 /jquery-module/node_modules
 /promise/node_modules
 /promise/dist
+/html-component/node_modules
+/html-component/dist
