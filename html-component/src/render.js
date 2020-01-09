@@ -2,20 +2,19 @@ import html2ast from './html2ast.js'
 
 
 class Component {
-    constructor(html, wrapId) {
-        this.wrapId = wrapId
+    constructor(html, wrapDom) {
         this.html = html
-        this.wrapDom = document.getElementById(this.wrapId)
+        this.wrapDom = wrapDom
         if (!this.wrapDom.__htmlcomponent__) {
             this.dom = null
             this.ast = null
             this.oldast = null
             this.wrapDom.__htmlcomponent__ = this
         }
-        this.patch(this.html)
+        this._patch(this.html)
     }
 
-    patch(html) {
+    _patch(html) {
         this.ast = html2ast(html) 
         if (!this.oldast) {
             this.dom = createElement(this.ast)
@@ -31,9 +30,9 @@ class Component {
 export function render(html, domId) {
     let wrapDom = document.getElementById(domId)
     if (wrapDom.__htmlcomponent__ instanceof Component) {
-        wrapDom.__htmlcomponent__.patch(html)
+        wrapDom.__htmlcomponent__._patch(html)
     } else {    
-        new Component(html, domId)
+        new Component(html, wrapDom)
     }
 }
 

@@ -5,11 +5,28 @@ module.exports = env => {
         mode: 'development',
         devtool: 'inline-source-map',
         entry: {
-            app: path.resolve(process.cwd(), 'example/app.js')
+            app: path.resolve(process.cwd(), 'example/main.js')
         },
         output: {
             path: path.resolve(process.cwd(), 'dist'),
             filename: 'app.js'
+        },
+        module: {
+            rules: [
+                // {
+                //     test: /\.js$/,
+                //     loader: [
+                //         'babel-loader'
+                //     ]
+                // },
+                {
+                    test: /\.jsx$/,
+                    loader: [
+                        'babel-loader',
+                        // path.resolve(process.cwd(), 'util/jsxloader.js')
+                    ]
+                }
+            ]
         },
         plugins: [
             new htmlWebpackPlugin({
