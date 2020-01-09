@@ -1,34 +1,56 @@
 import html2ast from './html2ast.js'
 
-let oldast = null
-export function render(html, dom) {
-    debugger
-    let ast = html2ast(html) 
-    console.log('ast', JSON.stringify(ast, null, 2))
-    if (!oldast) {
-        let componentdom = createElement(ast)
-        dom.appendChild(componentdom)
-    } else {
-        if (ast.tag != oldast.tag ) {
-            let componentdom = createElement(ast)
-            dom.innerHTML = ''
-            dom.appendChild(componentdom)
-        } else {
-            patch(oldast, ast)
+
+class Component {
+    constructor(html, wrapId) {
+        this.wrapId = wrapId
+        this.html = html
+        this.wrapDom = document.getElementById(this.wrapId)
+        if (!this.wrapDom.__htmlcomponent__) {
+            this.dom = null
+            this.ast = null
+            this.oldast = null
+            this.wrapDom.__htmlcomponent__ = this
         }
+        this.patch(this.html)
     }
-    oldast = ast
+
+    patch(html) {
+        this.ast = html2ast(html) 
+        if (!this.oldast) {
+            this.dom = createElement(this.ast)
+            this.wrapDom.appendChild(this.dom)
+        } else {
+            patch(this.oldast, this.ast, this.wrapDom)
+        }
+        this.oldast = this.ast
+        this.ast = null
+    }
 }
 
-export function patch(oldast, ast) {
-    ast.attrs.forEach(attr => {
-        oldast.__dom__.setAttribute(attr.name, attr.value)
-    })
-    ast.__dom__ = oldast.__dom__
+export function render(html, domId) {
+    let wrapDom = document.getElementById(domId)
+    if (wrapDom.__htmlcomponent__ instanceof Component) {
+        wrapDom.__htmlcomponent__.patch(html)
+    } else {    
+        new Component(html, domId)
+    }
+}
+
+export function patch(oldast, ast, wrapDom) {
+    if (ast.tag != oldast.tag ) {
+        let componentdom = createElement(ast)
+        wrapDom.innerHTML = ''
+        wrapDom.appendChild(componentdom)
+    } else {
+        ast.attrs.forEach(attr => {
+            oldast.__dom__.setAttribute(attr.name, attr.value)
+        })
+        ast.__dom__ = oldast.__dom__
+    }
 }
 
 export function createElement(ele) {
-    debugger
     if (typeof ele == 'string') {
         return document.createTextNode(ele)
     } else {

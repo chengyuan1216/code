@@ -3,7 +3,7 @@ import HC from '../src/index'
 
 console.log('HtmlComponent', HC)
 
-let app = document.getElementById('app')
+
 let htmlStr = `
 <div id="hello" vbind_value="1+1">
     测试
@@ -12,7 +12,8 @@ let htmlStr = `
     <img src="aaa" />
 </div>
 `
-HC.render(htmlStr, app)
+
+HC.render(htmlStr, 'app')
 
 
 function Timer(time) {
@@ -21,5 +22,10 @@ function Timer(time) {
 
 let i = 1
 setInterval(() => {
-    HC.render(Timer(i++), app)
+    HC.render(Timer(i++), 'app')
+}, 1000)
+
+let j = 100
+setInterval(() => {
+    HC.render(Timer(j++), 'app1')
 }, 1000)
