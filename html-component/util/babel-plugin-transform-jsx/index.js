@@ -7,13 +7,28 @@ module.exports = function (babel) {
     let code = ''
     if (node.type == 'JSXElement') { // 节点
       let tagName = node.openingElement.name.name
-      code += `<${tagName} ${getAttrs(node)}>`
-      if (node.children) {
-        node.children.forEach(child => {
-          code += transformCode(child)
-        })
+      if (/^[A-Z]/.test(tagName)) { // 自定义组件
+        let attributes = node.openingElement.attributes
+        if (attributes) {
+          debugger
+          let propsVar = ''
+          for (attr of attributes) {
+            if (attr.name.name == 'props') {
+              propsVar = attr.value.expression.name
+              break
+            }
+          }
+          code += `' + ${tagName}(${propsVar}) + '`
+        }
+      } else {
+        code += `<${tagName} ${getAttrs(node)}>`
+        if (node.children) {
+          node.children.forEach(child => {
+            code += transformCode(child)
+          })
+        }
+        code += `</${tagName}>`
       }
-      code += `</${tagName}>`
     } else if (node.type == 'JSXText') { // text
         code += node.value.replace(/^[\n\r\s]*|[\n\r\s]*$/g, '')
     } else if (node.type == 'JSXExpressionContainer') { // expression {}

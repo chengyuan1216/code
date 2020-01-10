@@ -1,21 +1,38 @@
-import HC from '../src/index'
+// import HC from '../src/index'
 function App() {
-    let props = {
-        title: 'hello'
-    }
+    let childData = '这是一段标题'
     let list = new Array(1000).join('1').split('')
     return (
         <div>
-            {list.map((_, index) => Child({index: index}))}
-            <Child title=""></Child>
+            {/* {list.map((_, index) => Child({index: index}))} */}
+            <Child props={childData}></Child>
+            <Child props={childData}></Child>
+            <Child props={childData}></Child>
+            <Child props={childData}></Child>
+            <Child props={childData}></Child>
+            <Child props={childData}></Child>
+            <div>hello</div>
         </div>
     )
 }   
 
-function Child(props) {
+
+function Item(content) {
+    return <li>{content}</li>
+}
+
+function List(content) {
+    return (
+        <ul>
+            <Item props={content}></Item>
+        </ul>
+    )
+}
+
+function Child(title) {
     return (
         <div class="child">
-            <h1>{props.index}</h1>
+            <h1 style="color: red">{title}</h1>
             <form class="navbar-form" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search"></input>
@@ -45,9 +62,4 @@ function Child(props) {
     )
 }
 
-// function Test(props) {
-//     return (
-//         <div>{props.title}</div>
-//     )
-// }
-HC.render(App(), 'app')
+document.getElementById('app').innerHTML = App()
