@@ -10,7 +10,6 @@ module.exports = function (babel) {
       if (/^[A-Z]/.test(tagName)) { // 自定义组件
         let attributes = node.openingElement.attributes
         if (attributes) {
-          debugger
           let propsVar = ''
           for (attr of attributes) {
             if (attr.name.name == 'props') {
@@ -71,13 +70,7 @@ module.exports = function (babel) {
       },
       JSXElement:{
         enter(path, file) {
-          debugger
           let code = transformCode(path.node)
-
-          // let code = generator(path.node, {}).code
-          // console.log('code 前', code)
-          // code = code.replace(/{/g, '${')
-          // console.log('code 后', code)
           path.replaceWithSourceString("'"+ code + "'")
           console.log("JSXElement Entered!");
         },
@@ -85,59 +78,59 @@ module.exports = function (babel) {
           console.log("JSXElement Exited!");
         }
       },
-      JSXExpressionContainer:{
-        enter(path, file) {
-          debugger
-          console.log("JSXExpressionContainer enter!")
-        },
-        exit() {
-          console.log("JSXExpressionContainer Exited!");
-        }
-      },
-      JSXAttribute:{
-        exit(path, file) {
-          console.log('JSXElement exit...')
-        },        
-        enter() {
-          console.log("JSXAttribute Entered!");
-        },
-        exit() {
-          console.log("JSXAttribute Exited!");
-        }
-      },
-      JSXFragment:{
-        exit(path, file) {
-          console.log('JSXFragment exit...')
-        },        
-        enter() {
-          console.log("JSXFragment Entered!");
-        },
-        exit() {
-          console.log("JSXFragment Exited!");
-        }
-      },
-      JSXNamespacedName:{
-        exit(path, file) {
-          console.log('JSXNamespacedName exit...')
-        },        
-        enter() {
-          console.log("JSXNamespacedName Entered!");
-        },
-        exit() {
-          console.log("JSXNamespacedName Exited!");
-        }
-      },
-      JSXSpreadChild:{
-        exit(path, file) {
-          console.log('JSXSpreadChild exit...')
-        },        
-        enter() {
-          console.log("JSXSpreadChild Entered!");
-        },
-        exit() {
-          console.log("JSXSpreadChild Exited!");
-        }
-      },
+      // JSXExpressionContainer:{
+      //   enter(path, file) {
+      //     debugger
+      //     console.log("JSXExpressionContainer enter!")
+      //   },
+      //   exit() {
+      //     console.log("JSXExpressionContainer Exited!");
+      //   }
+      // },
+      // JSXAttribute:{
+      //   exit(path, file) {
+      //     console.log('JSXElement exit...')
+      //   },        
+      //   enter() {
+      //     console.log("JSXAttribute Entered!");
+      //   },
+      //   exit() {
+      //     console.log("JSXAttribute Exited!");
+      //   }
+      // },
+      // JSXFragment:{
+      //   exit(path, file) {
+      //     console.log('JSXFragment exit...')
+      //   },        
+      //   enter() {
+      //     console.log("JSXFragment Entered!");
+      //   },
+      //   exit() {
+      //     console.log("JSXFragment Exited!");
+      //   }
+      // },
+      // JSXNamespacedName:{
+      //   exit(path, file) {
+      //     console.log('JSXNamespacedName exit...')
+      //   },        
+      //   enter() {
+      //     console.log("JSXNamespacedName Entered!");
+      //   },
+      //   exit() {
+      //     console.log("JSXNamespacedName Exited!");
+      //   }
+      // },
+      // JSXSpreadChild:{
+      //   exit(path, file) {
+      //     console.log('JSXSpreadChild exit...')
+      //   },        
+      //   enter() {
+      //     console.log("JSXSpreadChild Entered!");
+      //   },
+      //   exit() {
+      //     console.log("JSXSpreadChild Exited!");
+      //   }
+      // },
   };
 
   return {

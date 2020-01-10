@@ -5,31 +5,25 @@ function App() {
     return (
         <div>
             {/* {list.map((_, index) => Child({index: index}))} */}
-            <Child props={childData}></Child>
-            <Child props={childData}></Child>
-            <Child props={childData}></Child>
-            <Child props={childData}></Child>
-            <Child props={childData}></Child>
-            <Child props={childData}></Child>
-            <div>hello</div>
+            <Child></Child>
         </div>
     )
 }   
 
 
-function Item(content) {
-    return <li>{content}</li>
-}
+function Test() {
+    function log() {
+        console.log('kkkk')
+    }
 
-function List(content) {
     return (
-        <ul>
-            <Item props={content}></Item>
-        </ul>
+        <div onclick={log} >hhhhh</div>
     )
 }
 
-function Child(title) {
+
+
+function Child(title = '') {
     return (
         <div class="child">
             <h1 style="color: red">{title}</h1>
