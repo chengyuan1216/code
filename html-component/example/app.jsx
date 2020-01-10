@@ -5,23 +5,18 @@ function App() {
     return (
         <div>
             {/* {list.map((_, index) => Child({index: index}))} */}
-            <Child></Child>
+            {/* <Child></Child> */}
+            <div>hhh</div>
         </div>
     )
 }   
 
 
 function Test() {
-    function log() {
-        console.log('kkkk')
-    }
-
     return (
-        <div onclick={log} >hhhhh</div>
+        <div>test</div>
     )
 }
-
-
 
 function Child(title = '') {
     return (
@@ -56,4 +51,16 @@ function Child(title = '') {
     )
 }
 
-document.getElementById('app').innerHTML = App()
+function handleClick() {
+    console.log('handleClick')
+}
+// TODo： 
+// 支持事件
+// 重构编译器
+// 嵌套DOM有问题
+document.getElementById('app').appendChild(
+    <div define-dom="true" onclick={handleClick} style="color:red; border: 1px solid red;">
+        <span>title</span>
+        <Test></Test>
+    </div>
+)

@@ -52,10 +52,14 @@ module.exports = function (babel) {
       val = attr.value.value
       val = /^{/.test(val)? `' + ${val} + '`: val
       attrs += `${key}="${val}" `
+      if ('define-dom' == key) {
+        isdefinedom = true
+      }
     })
     return attrs
   }
 
+  let isdefinedom = false
   const visitor = {
       Program:{
         exit(path, file) {
@@ -70,8 +74,14 @@ module.exports = function (babel) {
       },
       JSXElement:{
         enter(path, file) {
+          isdefinedom = false
           let code = transformCode(path.node)
-          path.replaceWithSourceString("'"+ code + "'")
+          if (isdefinedom) {
+            path.replaceWithSourceString("(function () { let f = document.createElement('div'); f.innerHTML = '"+ code + "'; return f.children[0] })()")
+          } else {
+            path.replaceWithSourceString("'"+ code + "'")
+          }
+          // path.replaceWithSourceString(code)
           console.log("JSXElement Entered!");
         },
         exit() {
