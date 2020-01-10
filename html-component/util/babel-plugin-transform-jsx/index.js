@@ -15,12 +15,14 @@ module.exports = function (babel) {
       }
       code += `</${tagName}>`
     } else if (node.type == 'JSXText') { // text
-      code += node.value
+        code += node.value.replace(/^[\n\r\s]*|[\n\r\s]*$/g, '')
     } else if (node.type == 'JSXExpressionContainer') { // expression {}
       if (node.expression.type == 'Identifier') {
-        code += '${' + node.expression.name +'}'
-      } else if (node.expression.type == 'CallExpression') {
-        code += '${' + generator(node.expression, {}).code  +'}'
+        code += `' + ${node.expression.name} + '`
+      } else if (node.expression.type == 'CallExpression') { // 执行语句 console.log()
+        code +=  `' + (function(){ return [...${generator(node.expression, {}).code}]}).call(this).join("") + '`
+      } else if (node.expression.type == 'MemberExpression') {
+        code += `' + ${generator(node.expression, {}).code} + '`
       }
     }
     return code
@@ -34,7 +36,7 @@ module.exports = function (babel) {
     attributes.forEach(attr => {
       key = attr.name.name
       val = attr.value.value
-      val = /^{/.test(val)? '$'+val: val
+      val = /^{/.test(val)? `' + ${val} + '`: val
       attrs += `${key}="${val}" `
     })
     return attrs
@@ -61,7 +63,7 @@ module.exports = function (babel) {
           // console.log('code 前', code)
           // code = code.replace(/{/g, '${')
           // console.log('code 后', code)
-          path.replaceWithSourceString('`'+ code +'`')
+          path.replaceWithSourceString("'"+ code + "'")
           console.log("JSXElement Entered!");
         },
         exit() {

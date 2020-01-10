@@ -26,12 +26,13 @@ class Component {
 }
 
 export function render(html, domId) {
-    let wrapDom = document.getElementById(domId)
-    if (wrapDom.__htmlcomponent__ instanceof Component) {
-        wrapDom.__htmlcomponent__._patch(html)
-    } else {    
-        new Component(html, wrapDom)
-    }
+    // let wrapDom = document.getElementById(domId)
+    // if (wrapDom.__htmlcomponent__ instanceof Component) {
+    //     wrapDom.__htmlcomponent__._patch(html)
+    // } else {    
+    //     new Component(html, wrapDom)
+    // }
+    document.getElementById(domId).innerHTML = html
 }
 
 export function patch(oldast, ast, wrapDom) {
