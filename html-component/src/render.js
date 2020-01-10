@@ -1,6 +1,4 @@
 import html2ast from './html2ast.js'
-
-
 class Component {
     constructor(html, wrapDom) {
         this.html = html
@@ -37,7 +35,7 @@ export function render(html, domId) {
 }
 
 export function patch(oldast, ast, wrapDom) {
-    if (ast.tag != oldast.tag ) {
+    if (ast.tag != oldast.tag) {
         let componentdom = createElement(ast)
         wrapDom.innerHTML = ''
         wrapDom.appendChild(componentdom)
@@ -45,8 +43,27 @@ export function patch(oldast, ast, wrapDom) {
         ast.attrs.forEach(attr => {
             oldast.__dom__.setAttribute(attr.name, attr.value)
         })
+        let childs = []
+
+        oldast.__dom__.innerHTML = ''
+        if (ast.children.length) {
+            childs = createElements(ast.children)
+            childs.forEach(child => {
+                oldast.__dom__.appendChild(child)
+            })
+        }
+
         ast.__dom__ = oldast.__dom__
     }
+}
+
+export function createElements(eles) {
+    if (!(eles instanceof Array)) {
+        eles = [eles]
+    }
+    return eles.map(ele => {
+        return createElement(ele)
+    })
 }
 
 export function createElement(ele) {

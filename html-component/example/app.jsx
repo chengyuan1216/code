@@ -8,23 +8,30 @@ let htmlStr = (
         <img src="aaa" />
     </div>
 )
-HC.render(htmlStr, 'app')
+// HC.render(htmlStr, 'app')
 
-
+function Child(item) {
+    return <span>{item}</span>  
+}
 function Timer(time) {
     return (
-        <h1 class="timer">
-            <span>{time}</span>
-        </h1>
+        <div id="h1" class="{time}">
+            <div>{time}</div>
+            <span>{new Date().toLocaleString()}</span>
+            <div>
+                {}
+            </div>
+        </div>
     )
 }
 
 let i = 1
+HC.render(Timer(i++), 'app')
 setInterval(() => {
     HC.render(Timer(i++), 'app')
 }, 1000)
 
-let j = 100
-setInterval(() => {
-    HC.render(Timer(j++), 'app1')
-}, 1000)
+// let j = 100
+// setInterval(() => {
+//     HC.render(Timer(j++), 'app1')
+// }, 1000)
