@@ -3,16 +3,22 @@ const generator = require('babel-generator').default
 module.exports = function (babel) {
   const { types, template } = babel
   const visitor = {
+      Program:{
+        exit(path, file) {
+          console.log('Program exit...')
+        },        
+        enter() {
+          console.log("Program Entered!");
+        },
+        exit() {
+          console.log("Program Exited!");
+        }
+      },
       JSXElement:{
         enter(path, file) {
-          debugger
-          let code = generator(path.node, {
-            retainLines: false,
-            compact: "auto",
-            concise: false,
-            quotes:"double"
-          }).code
-          path.replaceWithSourceString(types.stringLiteral(code))
+          let code = generator(path.node, {}).code
+          code = code.replace(/{/g, '${')
+          path.replaceWithSourceString('`'+ code +'`')
           console.log("JSXElement Entered!");
         },
         exit() {
@@ -63,22 +69,11 @@ module.exports = function (babel) {
           console.log("JSXSpreadChild Exited!");
         }
       },
-      Program:{
-        exit(path, file) {
-          console.log('Program exit...')
-        },        
-        enter() {
-          console.log("Program Entered!");
-        },
-        exit() {
-          console.log("Program Exited!");
-        }
-      }
   };
 
   return {
       name: "transform-react-jsx",
       inherits: jsxsyntax.default,
       visitor
-  };
-};
+  }
+}
