@@ -2,11 +2,12 @@
  * 
  */
 import {async} from './util'
-export function render(html, wrap) {
+import {IHiComponent} from '../types/index'
+export function render(this:IHiComponent, html: string | HTMLElement, wrap: string) {
     async(_render, this, html, wrap)
 }
 
-function _render(html, wrap) {
+function _render(this:IHiComponent, html: string | HTMLElement, wrap: string) {
     let parent = document.querySelector(wrap)
     if (!parent) {
         throw new Error('wrap 不存在')

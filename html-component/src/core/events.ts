@@ -1,5 +1,11 @@
 import {toArray} from './util'
+
+interface Events {
+  [key:string]: Array<any> | null
+}
+
 export default class EventEmitter {
+    private _events: Events
     constructor() {
       this._events = Object.create(null)
     }
@@ -9,7 +15,7 @@ export default class EventEmitter {
      * @param {string | Array<string>} event 
      * @param {Function} fn 
      */
-    on(event, fn) {
+    on(event: string | Array<string>, fn: Function) {
         const vm = this
         if (Array.isArray(event)) {
             for (let i = 0, l = event.length; i < l; i++) {
@@ -26,7 +32,7 @@ export default class EventEmitter {
      * @param {string} event 
      * @param {Function} fn 
      */
-    once(event, fn) {
+    once(event: string, fn: Function) {
         const vm = this
         function on () {
             vm.off(event, on)
@@ -42,10 +48,10 @@ export default class EventEmitter {
      * @param {string | Array<string>} event 
      * @param {Function} fn 
      */
-    off(event, fn) {
+    off(event?: string | Array<string>, fn?:Function) {
         const vm = this
         // all
-        if (!arguments.length) {
+        if (event == undefined) {
           vm._events = Object.create(null)
           return vm
         }
@@ -82,7 +88,7 @@ export default class EventEmitter {
      * 
      * @param {string} event 
      */
-    emit(event) {
+    emit(event: string, ...args: any[]) {
         const vm = this
         let cbs = vm._events[event]
         if (cbs) {

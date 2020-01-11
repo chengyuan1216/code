@@ -8,7 +8,7 @@ module.exports = env => {
         mode: 'development',
         devtool: 'inline-source-map',
         entry: {
-            app: path.resolve(process.cwd(), 'src/index.js')
+            app: path.resolve(process.cwd(), 'src/index.ts')
         },
         output: {
             path: path.resolve(process.cwd(), 'lib'),
@@ -17,14 +17,15 @@ module.exports = env => {
             libraryTarget: "umd"
         },
         resolve: {
-            extensions: [".js", ".json", ".jsx", ".css"]
+            extensions: [".ts", ".js", ".json", ".jsx", ".css"]
         },
         module: {
             rules: [
                 {
-                    test: /\.(jsx|js)$/,
+                    test: /\.(tsx|ts)$/,
                     loader: [
-                        'babel-loader'
+                        'babel-loader',
+                        'ts-loader'
                     ]
                 }
             ]
