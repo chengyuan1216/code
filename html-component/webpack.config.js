@@ -1,5 +1,9 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+
+function resolve(source) {
+    return path.resolve(process.cwd(), source)
+}
 module.exports = env => {
     return {
         mode: 'development',
@@ -10,6 +14,12 @@ module.exports = env => {
         output: {
             path: path.resolve(process.cwd(), 'dist'),
             filename: 'app.js'
+        },
+        resolve: {
+            extensions: [".js", ".json", ".jsx", ".css"],
+            alias: {
+                'HiComponent': resolve('src')
+            }
         },
         module: {
             rules: [

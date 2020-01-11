@@ -1,7 +1,5 @@
-import html2ast from './html2ast.js'
-import {render} from './render.js'
+import EventEmitter from './core/events'
 
 export default {
-    html2ast,
-    render
+    EventEmitter
 }
