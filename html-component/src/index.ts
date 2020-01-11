@@ -2,6 +2,7 @@ import EventEmitter from './core/events'
 import {render} from './core/render'
 import {Context} from './core/context'
 import {IHiComponent} from './types/index'
+import dom, {Fragment}from './core/dom/dom'
 
 
 export default function HiComponent(this: IHiComponent):IHiComponent {
@@ -33,6 +34,9 @@ HiComponent.prototype = {
     }
 }
 HiComponent.EventEmitter = EventEmitter
-// HiComponent.target = null
+HiComponent.dom = dom
+HiComponent.Fragment = Fragment
+
+
 
  
