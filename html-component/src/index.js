@@ -3,7 +3,7 @@ import {render} from './core/render'
 import {Context} from './core/context'
 
 export default function HiComponent() {
-    console.log('constructor333')
+    console.log('constructor4444')
     this.context = new Context()
     this.eventBus = new EventEmitter()
     this._init()

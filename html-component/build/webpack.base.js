@@ -15,6 +15,9 @@ module.exports = env => {
             path: path.resolve(process.cwd(), 'dist'),
             filename: 'app.js'
         },
+        devServer: {
+            hot: true
+        },
         resolve: {
             extensions: [".js", ".json", ".jsx", ".css"],
             alias: {
