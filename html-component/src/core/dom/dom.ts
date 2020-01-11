@@ -3,6 +3,7 @@ import context from '../../index'
 let cid = 0
 let handleId = ''
 function dom(tag, attrs, ...children) {
+  debugger
   if (typeof tag === 'function') {
     const result = tag(Object.assign({}, attrs, { children }))
     return result === 'FRAGMENT' ? children : result
@@ -15,17 +16,20 @@ function dom(tag, attrs, ...children) {
         if (/^on/.test(key)) {
             handleId = `date-handler-${cid++}`
             html += `  ${handleId}`
-            setTimeout(() => {
-                let eventName = key.slice(2).toLowerCase()
-                document.querySelector(`[${handleId}]`).addEventListener(eventName, attrs[key])
-            }, 1000)
+            ;(function(handleId, key, handler){
+              setTimeout(() => {
+                console.log(handleId, key)
+                    let eventName = key.slice(2).toLowerCase()
+                    document.querySelector(`[${handleId}]`) && document.querySelector(`[${handleId}]`).addEventListener(eventName, handler)
+              }, 2000)
+            })(handleId, key, attrs[key])
         } else {
             html += ` ${key}="${attrs[key]}"`
         }
     })
     html +='>'
     children &&  children.forEach(child => {
-        html += child
+        html += Array.isArray(child)? child.join(''): child
     })
     html +=`</${tag}>`
     return html

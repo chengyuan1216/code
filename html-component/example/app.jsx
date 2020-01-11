@@ -36,22 +36,22 @@ function Child(props) {
     )
 }
 
-function handleClick() {
-    console.log('click')
+function handleClick(data) {
+    console.log('click', data)
 }
-function Text() {
+function Text(props) {
     return (
-        <div class="ss" onClick={handleClick}>kkkkk</div>
+        <div class="ss" onClick={() => {handleClick(props.index)}}>kkkkk</div>
     )
 }
 function App() {
     let childData = '这是一段标题'
-    let list = new Array(1000).join('1').split('')
+    let list = new Array(10).join('1').split('')
     return (
         <Fragment>
             <div class="hello">
                 hhhhh
-                <Text></Text>
+                {list.map((_, index) => <Text index={index}></Text>)}
             </div>
             {/* <div class="hello">
                 hhhhh
@@ -71,6 +71,7 @@ function App() {
 
 console.time('test')
 let Context = new HiComponent()
+console.log('App()[0]', App()[0])
 Context.render(App()[0], '#app')
 // document.getElementById('app').innerHTML = App()
 console.timeEnd('test')
