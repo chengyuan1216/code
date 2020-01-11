@@ -7,3 +7,11 @@ export interface IHiComponent {
     _init: () => void,
     _flush: () => void
 }
+
+// export abstract  class IHiComponent {
+//     public static target: Object
+//     context: Context
+//     eventBus: EventEmitter
+//     _init: () => void
+//     _flush: () => void
+// }

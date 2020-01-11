@@ -4,16 +4,18 @@ import {Context} from './core/context'
 import {IHiComponent} from './types/index'
 
 
-export default function HiComponent(this: IHiComponent) {
-    console.log('constructor4444')
+export default function HiComponent(this: IHiComponent):IHiComponent {
+    console.log('constructor6666')
     this.context  = new Context()
     this.eventBus = new EventEmitter()
     this._init()
+    return this
 }
 
 
 
 let cid = 0
+let target = null
 HiComponent.prototype = {
     constructor: HiComponent,
     render,
@@ -31,5 +33,6 @@ HiComponent.prototype = {
     }
 }
 HiComponent.EventEmitter = EventEmitter
+// HiComponent.target = null
 
  
