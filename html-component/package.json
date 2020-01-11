@@ -5,8 +5,10 @@
   "main": "index.js",
   "module": "es2015",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w",
+    "build:example": "webpack --config ./build/webpack.base.js",
+    "watch:example": "webpack --config ./build/webpack.base.js -w",
+    "build:lib": "webpack --config ./build/webpack.lib.js",
+    "dev:lib": "webpack --config ./build/webpack.lib.js -w",
     "babel": "babel --init"
   },
   "keywords": [],

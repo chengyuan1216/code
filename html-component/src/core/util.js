@@ -12,4 +12,10 @@ export function toArray (list, start) {
     }
     return ret
 }
+
+export function async(cb, context, ...args) {
+  setTimeout(() => {
+      cb.call(context, ...args)
+  }, 0)
+}
   
