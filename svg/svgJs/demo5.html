@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- 不是必须 -->
+        <!-- <script src="https://cdn.bootcss.com/svg.js/3.0.13/polyfills.js"></script> -->
+        <!-- 注意svg.js2.0和3.0不兼容 -->
+        <script src="https://cdn.bootcss.com/svg.js/3.0.13/svg.js"></script>
+    </head>
+    <body>
+        <div id="drawing"></div>
+        <script>
+            /*
+                分组
+            */
+            // 创建svg文档对象
+            var parent = SVG()
+            parent.size(300, 300)
+            parent.addTo('#drawing')
+
+            // 创建一个group对象
+            // 在创建group或rect时既可以通过构造函数创建也可以直接调用 parent.group 或 parent.rect创建
+            // 区别是通过构造函数创建需要手动添加进文档
+            var group = new SVG.G()
+            var rect1 = new SVG.Rect(100, 100).attr({
+                width:50,
+                height: 50,
+                x: 0,
+                y:0,
+                fill: '#e0e0e0'
+            })
+            var rect2 = new SVG.Rect(100, 100).attr({
+                width:50,
+                height: 50,
+                x: 100,
+                y: 100,
+                fill: '#e0e0e0'
+            })
+            group.add(rect1)
+            group.add(rect2)
+
+            parent.add(group)
+
+            console.log(SVG, 'SVG')
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- 不是必须 -->
+        <!-- <script src="https://cdn.bootcss.com/svg.js/3.0.13/polyfills.js"></script> -->
+        <!-- 注意svg.js2.0和3.0不兼容 -->
+        <script src="https://cdn.bootcss.com/svg.js/3.0.13/svg.js"></script>
+    </head>
+    <body>
+        <div id="drawing"></div>
+        <script>
+            /*
+                svg文档嵌套
+            */
+            // 创建svg文档对象
+            var parent = SVG()
+            parent.size(300, 300)
+            parent.addTo('#drawing')
+
+            // 创建rect对象
+            var rect = parent.rect(100, 100).attr({ fill: '#f06' })
+            
+            // 创建嵌套的svg文档对象
+            var nested = parent.nested()
+            // 在嵌套的svg文档对象内创建rect对象
+            var rect = nested.rect(20, 20).attr({ fill: 'green', x:150,y:150 })
+        </script>
+    </body>
+</html>
