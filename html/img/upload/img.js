@@ -102,7 +102,7 @@ function fileToUrl (file) {
     //         }
     //     }
     // }
-    var url = (window.URL || window.webkitURL).createObjectURL(file)
+    let url = (window.URL || window.webkitURL).createObjectURL(file)
     // files[url] = file
     return url
 }
@@ -123,7 +123,7 @@ function urlToBase641(filePath, callback) {
             debugger
             // 如果是手机拍摄的图片会带有Orientation信息, 导致图片会旋转
             console.log('Orientation', EXIF.getTag(this, 'Orientation'))
-            var orientation = EXIF.getTag(this, 'Orientation') || 6
+            let orientation = EXIF.getTag(this, 'Orientation') || 6
 
             let width = img.width
             let height = img.height
@@ -189,7 +189,7 @@ function urlToBase641(filePath, callback) {
 
 /* 根据url获取文件 */
 function urlToFile (url) {
-    // var file = files[url]
+    // let file = files[url]
     // if (file) {
     //     return Promise.resolve(file)
     // }
@@ -199,7 +199,7 @@ function urlToFile (url) {
         return Promise.resolve(base64ToFile(url))
     }
     return new Promise((resolve, reject) => {
-        var xhr = new XMLHttpRequest()
+        let xhr = new XMLHttpRequest()
         xhr.open('GET', url, true)
         xhr.responseType = 'blob'
         xhr.onload = function () {
@@ -247,14 +247,14 @@ function urlToBlob(url) {
 /** base64转File */
 function base64ToFile(base64) {
     base64 = base64.split(',')
-    var type = base64[0].match(/:(.*?);/)[1]
-    var str = atob(base64[1])
-    var n = str.length
-    var array = new Uint8Array(n)
+    let type = base64[0].match(/:(.*?);/)[1]
+    let str = atob(base64[1])
+    let n = str.length
+    let array = new Uint8Array(n)
     while (n--) {
         array[n] = str.charCodeAt(n)
     }
-    var filename = `${Date.now()}.${type.split('/')[1]}`
+    let filename = `${Date.now()}.${type.split('/')[1]}`
     return new File([array], filename, { type: type })
 }
 
@@ -267,10 +267,10 @@ function base64ToUrl(base64) {
 /** */
 function base64ToBlob(base64) {
     base64 = base64.split(',')
-    var type = base64[0].match(/:(.*?);/)[1]
-    var str = atob(base64[1])
-    var n = str.length
-    var array = new Uint8Array(n)
+    let type = base64[0].match(/:(.*?);/)[1]
+    let str = atob(base64[1])
+    let n = str.length
+    let array = new Uint8Array(n)
     while (n--) {
         array[n] = str.charCodeAt(n)
     }
@@ -290,74 +290,50 @@ function blobToFile(blob, fileName, fileType) {
 
 
 // 上传
-function upload ({
-    url,
-    filePath,
-    name,
-    header,
-    formData
-} = {}) {
-    var xhr = new XMLHttpRequest()
-    var form = new FormData()
-    var timer
-    // 其他参数
-    Object.keys(formData).forEach(key => {
-        form.append(key, formData[key])
-    })
-    // 
-    form.append(name, file, file.name || `file-${Date.now()}`)
-    xhr.open('POST', url)
-    Object.keys(header).forEach(key => {
-    xhr.setRequestHeader(key, header[key])
-    })
-    xhr.upload.onprogress = function (event) {
-    uploadTask._callbacks.forEach(callback => {
-        var totalBytesSent = event.loaded
-        var totalBytesExpectedToSend = event.total
-        var progress = Math.round(totalBytesSent / totalBytesExpectedToSend * 100)
-        callback({
-        progress,
-        totalBytesSent,
-        totalBytesExpectedToSend
+function upload (options = {}) {
+    let {
+        url,  // 上传地址
+        file, // 文件
+        name, // 文件对应的name字段
+        header, // 请求头
+        formData, // 表单数据
+        onprogress,
+        onerror
+    } = options
+
+    urlToFile(url).then(() => {
+        let xhr = new XMLHttpRequest()
+        let form = new FormData()
+        // 其他参数
+        Object.keys(formData).forEach(key => {
+            form.append(key, formData[key])
         })
-    })
-    }
-    xhr.onerror = function () {
-    clearTimeout(timer)
-    invoke(callbackId, {
-        errMsg: 'uploadFile:fail'
-    })
-    }
-    xhr.onabort = function () {
-    clearTimeout(timer)
-    invoke(callbackId, {
-        errMsg: 'uploadFile:fail abort'
-    })
-    }
-    xhr.onload = function () {
-    clearTimeout(timer)
-    let statusCode = xhr.status
-    invoke(callbackId, {
-        errMsg: 'uploadFile:ok',
-        statusCode,
-        data: xhr.responseText || xhr.response
-    })
-    }
-    if (!uploadTask._isAbort) {
-    timer = setTimeout(function () {
-        xhr.upload.onprogress = xhr.onload = xhr.onabort = xhr.onerror = null
-        uploadTask.abort()
-        invoke(callbackId, {
-        errMsg: 'uploadFile:fail timeout'
+        // 文件
+        form.append(name, file, file.name || `file-${Date.now()}`)
+        xhr.open('POST', url)
+        // 请求头
+        Object.keys(header).forEach(key => {
+            xhr.setRequestHeader(key, header[key])
         })
-    }, timeout)
-    xhr.send(form)
-    uploadTask._xhr = xhr
-    } else {
-    invoke(callbackId, {
-        errMsg: 'uploadFile:fail abort'
+
+        xhr.upload.onprogress = function (event) {
+            typeof onprogress == 'function' && onprogress(event)
+        }
+
+        xhr.onerror = function () {
+            typeof onerror == 'function' && onerror()
+        }
+
+        xhr.onabort = function () {
+
+        }
+
+        xhr.onload = function () {
+
+        }
+
+        xhr.send(form)
     })
-    }
 }
 
 // 下载
