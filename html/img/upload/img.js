@@ -337,11 +337,17 @@ function upload (options = {}) {
 }
 
 // 下载
-function download(src) {
-    debugger
+// https://github.com/eligrey/FileSaver.js/blob/master/src/FileSaver.js
+function download(src, name = 'text.jpg') {
     let a = document.createElement('a')
-    a.href = src
-    a.click()
+    a.download = name
+    a.rel = 'noopener' // tabnabbing
+    if (typeof src == 'string') {
+        a.href = src
+    } else {
+        a.href = fileToUrl(src)
+    }
+    setTimeout(function () { a.click() }, 0)
 }
 
 win.ImgChoose = {

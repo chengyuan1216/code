@@ -56,9 +56,9 @@
             }).then(files => {
                 // 获取File
                 console.log(files)
-                ImgChoose.fileToBlob(files.tempFilePaths[0]).then(base64 => {
-                    debugger
-                    console.log(base64)
+                ImgChoose.fileToBlob(files.tempFilePaths[0]).then(blob => {
+                    console.log(blob)
+                    ImgChoose.download(blob)
                 })
             })
         }
