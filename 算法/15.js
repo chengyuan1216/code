@@ -16,16 +16,30 @@ var threeSum = function (nums) {
       sum = nums[i] + nums[j]
       map[sum] = map[sum] || {}
       if (!map[sum][nums[i]] && !map[sum][nums[j]]) {
-        map[sum][nums[i]] = [nums[i], nums[j]]
+        map[sum][nums[i]] = [
+          [nums[i], nums[j]],
+          [i, j]
+        ]
       }
       if (map[-nums[j]]) {
         Object.keys(map[-nums[j]]).forEach(key => {
-          result.push(map[-nums[j]][key].concat([nums[j]]))
+          var flag = true
+          result.forEach(item => {
+            if (item[0].indexOf(nums[j]) > -1 || item[1].indexOf(j) > -1) {
+              flag = false
+            }
+          })
+          if (map[-nums[j]][key][1].indexOf(j) > -1) {
+            flag = false
+          }
+          if (flag) {
+            result.push(map[-nums[j]][key].concat([nums[j]]))
+          }
         })
       }
     }
   }
-  console.log(map)
+  // console.log(map)
   return result
 };
 
