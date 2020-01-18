@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "b:build": "node ./build/build.js",
-    "b:watch": "node ./build/build.js --watch",
-    "b:dev": "node ./build/build.js --dev",
-    "b:middleware": "node ./build/build.js --middleware",
+    "b:build": "node ./build/build.config.js",
+    "b:watch": "node ./build/watch.config.js",
+    "b:dev": "node ./build/dev.config.js",
+    "b:middleware": "node ./build/middleware.config.js",
     "c:build": "webpack --config ./config/webpack.config.js",
     "c:watch": "webpack --config ./config/webpack.config.js  --env._watch",
     "c:dev": "webpack-dev-server --config ./config/webpack.config.js  --env._dev"
