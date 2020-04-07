@@ -9,7 +9,7 @@
 			</view>
 			<view class="uni-title">不同颜色和尺寸的switch</view>
 			<view>
-				<switch checked color="#FFCC33" style="transform:scale(0.7)"/>
+				<switch checked color="#FFCC33" style="transform:scale(0.7) translateX(30%);"/>
 				<switch color="#FFCC33" style="transform:scale(0.7)"/>
 			</view>
 

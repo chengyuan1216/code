@@ -150,6 +150,7 @@
                 this.navigateFlag = true;
                 let path = e.url ? e.url : e;
                 let url = ~path.indexOf('platform') ? path : '/pages/template/' + path + '/' + path;
+                console.log('url================', url)
                 uni.navigateTo({
                     url: url
                 });
