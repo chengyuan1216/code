@@ -10,3 +10,5 @@
 /babylon/node_modules
 /vue/vue-ssr/node_modules
 /vue/vue-ssr/server/node_modules
+/python/pic
+/python/src/pic
