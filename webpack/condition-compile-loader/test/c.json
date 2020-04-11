@@ -1,0 +1,335 @@
+{
+    "pages" : [
+        {
+            "path" : "pages/tabs/index"
+        },
+        {
+            "path" : "pages/tabs/category"
+        },
+        {
+            "path" : "pages/tabs/center"
+        },
+        {
+            "path" : "pages/inputPhone"
+        },
+        {
+            "path" : "pages/tabs/cart"
+        }
+    ],
+    "subPackages" : [
+        {
+            "root" : "app/center",
+            "pages" : [
+                {
+                    "path" : "myInfo"
+                },
+                {
+                    "path" : "accountSecurity"
+                },
+                {
+                    "path" : "identityVerify"
+                },
+                {
+                    "path" : "newTelVerify"
+                },
+                {
+                    "path" : "consume-record"
+                },
+                {
+                    "path" : "invite"
+                },
+                {
+                    "path" : "my-order"
+                },
+                {
+                    "path" : "personal-data"
+                }
+            ]
+        },
+        {
+            "root": "app/integral",
+            "pages": [
+                {
+                    "path" : "index"
+                },
+                {
+                    "path" : "detail"
+                },
+                {
+                    "path" : "record"
+                },
+                {
+                    "path" : "rules"
+                }
+            ]
+        },
+        {
+            "root": "app/signin",
+            "pages": [
+                {
+                    "path" : "index"
+                }
+            ]
+        },
+        {
+            "root": "app/task",
+            "pages": [
+                {
+                    "path" : "index"
+                }
+            ]
+        },
+        {
+            "root": "app/collect",
+            "pages": [
+                {
+                    "path" : "index"
+                },
+                {
+                    "path" : "reward"
+                }
+            ]
+        },
+        {
+            "root": "app/vip",
+            "pages": [
+                {
+                    "path" : "index"
+                },
+                {
+                    "path" : "rules"
+                }
+            ]
+        },
+        {
+            "root": "app/webbox",
+            "pages": [
+                {
+                    "path" : "index"
+                }
+            ]
+        },
+        {
+            "root" : "app/mall",
+            "pages" : [
+                {
+                    "path" : "page/goodsDetail"
+                },
+                {
+                    "path" : "page/addressList"
+                },
+                {
+                    "path" : "page/disableGoods"
+                },
+                {
+                    "path" : "page/confirmOrder"
+                },
+                {
+                    "path" : "page/goodsList"
+                },
+                {
+                    "path" : "page/evaluate"
+                },
+                {
+                    "path" : "page/addressAdd"
+                },
+                {
+                    "path" : "page/searchWord"
+                },
+                {
+                    "path" : "page/searchReasult"
+                },
+                {
+                    "path" : "page/goodsDetailVr"
+                },
+                {
+                    "path" : "page/confirmOrderVr"
+                },
+                {
+                    "path" : "page/buyCar"
+                },
+                {
+                    "path" : "page/payComplete"
+                },
+                {
+                    "path" : "page/concatAdd"
+                }
+            ]
+        },
+        {
+            "root" : "app/order",
+            "pages" : [
+                {
+                    "path" : "page/orderList"
+                },
+                {
+                    "path" : "page/orderDetail"
+                },
+                {
+                    "path" : "page/orderDetailVr"
+                },
+                {
+                    "path" : "page/orderEvaluate"
+                },
+                {
+                    "path" : "page/orderLogistics"
+                },
+                {
+                    "path" : "page/orderElectionVr"
+                }
+            ]
+        },
+        {
+            "root": "app/coupon",
+            "pages": [
+                {
+                    "path": "index",
+                    "style": {
+                        "enablePullDownRefresh": true
+                    }
+                },
+                {
+                    "path": "invalid-list"
+                },
+                {
+                    "path": "detail"
+                },
+                {
+                    "path": "use-info"
+                },
+                {
+                    "path": "choose-coupon"
+                },
+                {
+                    "path": "share-coupon"
+                }
+            ]
+        },
+        {
+            "root": "app/store-card",
+            "pages": [
+                {
+                    "path": "index"
+                },
+                {
+                    "path": "my-store-card"
+                },
+                {
+                    "path": "detail"
+                },
+                {
+                    "path": "charge"
+                },
+                {
+                    "path": "buy-card-center"
+                },
+                {
+                    "path": "buy-card"
+                },
+                {
+                    "path": "use-info"
+                }
+            ]
+        },
+        {
+            "root" : "app/refund",
+            "pages" : [
+                {
+                    "path" : "page/apply-refund"
+                },
+                {
+                    "path" : "page/index"
+                },
+                {
+                    "path" : "refund-return-goods/detail"
+                },
+                {
+                    "path" : "refund-return-goods/apply"
+                },
+                {
+                    "path" : "page/return-detail"
+                },
+                {
+                    "path" : "exchange-goods/apply"
+                },
+                {
+                    "path" : "exchange-goods/detail"
+                }
+            ]
+        },
+        {
+            "root": "app/group",
+            "pages": [
+                {
+                    "path": "page/detail"
+                },
+                {
+                    "path": "page/member-list"
+                },
+                {
+                    "path": "page/gather-member-list"
+                }
+            ]
+        }
+    ],
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "极宠家商城",
+        "navigationBarBackgroundColor" : "#F8F8F8",
+        "backgroundColor" : "#F8F8F8",
+        "navigationStyle" : "custom"
+    },
+    "tabBar" : {
+        "color" : "#999999",
+        "selectedColor" : "#EB5B53",
+        "list" : [
+            /* IF_TRUE_test */
+            {
+                "pagePath" : "pages/tabs/index",
+                "text" : "首页true",
+                "iconPath" : "static/imgs/index.png",
+                "selectedIconPath" : "static/imgs/index-sel.png"
+            },
+            /* FI_TRUE_test */
+
+            /* IF_FALSE_test */
+            {
+                "pagePath" : "pages/tabs/index",
+                "text" : "首页false",
+                "iconPath" : "static/imgs/index.png",
+                "selectedIconPath" : "static/imgs/index-sel.png"
+            },
+            /* FI_FALSE_test */
+
+            {
+                "pagePath" : "pages/tabs/category",
+                "text" : "分类",
+                "iconPath" : "static/imgs/category.png",
+                "selectedIconPath" : "static/imgs/category-sel.png"
+            },
+            {
+                "pagePath" : "pages/tabs/cart",
+                "text" : "购物车",
+                "iconPath" : "static/imgs/cart.png",
+                "selectedIconPath" : "static/imgs/cart-sel.png"
+            },
+            {
+                "pagePath" : "pages/tabs/center",
+                "text" : "我的",
+                "iconPath" : "static/imgs/center.png",
+                "selectedIconPath" : "static/imgs/center-sel.png"
+            }
+        ]
+    },
+    "condition" : {
+    // 模式配置，仅开发期间生效
+    "current" : 0, // 当前激活的模式(list 的索引项)
+    "list" : [
+        {
+            "name" : "", //模式名称
+            "path" : "", //启动页面，必选
+            "query" : "" //启动参数，在页面的onLoad函数里面得到
+        }
+    ]
+    }
+}
