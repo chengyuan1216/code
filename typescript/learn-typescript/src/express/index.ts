@@ -1,7 +1,7 @@
 import express from 'express'
 import {Logger, DateUtil} from '../utils/index';
 
-Logger.i(DateUtil.getTime())
+Logger.i(DateUtil.format('kkk'))
 
 const App = express()
 const post = 8080

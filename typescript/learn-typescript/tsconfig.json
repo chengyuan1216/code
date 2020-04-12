@@ -36,6 +36,7 @@
     "include": [
         "./src/**/*",
         // 为第三方库声明 https://www.jianshu.com/p/35742227738e
+        // 在这里引入之后就不需要使用///引入了
         "./typings" 
     ],
 
