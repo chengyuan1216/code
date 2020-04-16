@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --config ./nodemon.json node ./script/transform-code.js",
+    "start": "",
     "build": "node ./script/build.js"
   },
   "keywords": [],
@@ -14,8 +15,12 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
+    "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",
     "nodemon": "^2.0.3",
+    "typescript": "^3.8.3",
     "webpack": "^4.42.1"
   }
 }

@@ -15,7 +15,8 @@ module.exports = {
                 test: /\.js$/,
                 enforce: "pre",
                 use:[
-                    path.resolve(__dirname, './loader/transform-loader.js')
+                    // path.resolve(__dirname, './loader/transform-loader.js')
+                    'babel-loader'
                 ]
             }
         ]
