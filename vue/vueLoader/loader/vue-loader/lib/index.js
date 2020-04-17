@@ -44,27 +44,30 @@ module.exports = function (source) {
   const stringifyRequest = r => loaderUtils.stringifyRequest(loaderContext, r)
 
   const {
-    target,
-    request,
+    target, // web
+    request, // e:\github\code\vue\vueLoader\loader\vue-loader\lib\index.js??vue-loader-options!e:\github\code\vue\vueLoader\src\index.vue
     minimize,
     sourceMap,
-    rootContext,
-    resourcePath,
+    rootContext, // e:\github\code\vue\vueLoader
+    resourcePath, // e:\github\code\vue\vueLoader\src\index.vue
     resourceQuery
   } = loaderContext
 
-  const rawQuery = resourceQuery.slice(1)
+  const rawQuery = resourceQuery.slice(1) // 查询数据
   const inheritQuery = `&${rawQuery}`
   const incomingQuery = qs.parse(rawQuery)
-  const options = loaderUtils.getOptions(loaderContext) || {}
+  const options = loaderUtils.getOptions(loaderContext) || {} // 获取插件配置
 
-  const isServer = target === 'node'
+  const isServer = target === 'node' // 是否是服务端
   const isShadow = !!options.shadowMode
   const isProduction = options.productionMode || minimize || process.env.NODE_ENV === 'production'
-  const filename = path.basename(resourcePath)
-  const context = rootContext || process.cwd()
-  const sourceRoot = path.dirname(path.relative(context, resourcePath))
+  const filename = path.basename(resourcePath) // index.vue
+  const context = rootContext || process.cwd() // e:\github\code\vue\vueLoader
+  const sourceRoot = path.dirname(path.relative(context, resourcePath)) // src
 
+  // 解析整个文件的代码， 分离成各个块
+  // 使用htmlParser解析vue文件
+  // 使用iru-cache做缓存
   const descriptor = parse({
     source,
     compiler: options.compiler || loadTemplateCompiler(loaderContext),
@@ -76,6 +79,9 @@ module.exports = function (source) {
   // if the query has a type field, this is a language block request
   // e.g. foo.vue?type=template&id=xxxxx
   // and we will return early
+  // 当请求块资源时
+  // 在解析vue文件时，最终解析出的代码是依赖各个块的
+  // 请求各个块时与请求vue的路径一致， 只不过后面会增加查询参数
   if (incomingQuery.type) {
     return selectBlock(
       descriptor,
@@ -92,6 +98,7 @@ module.exports = function (source) {
 
   const shortFilePath = rawShortFilePath.replace(/\\/g, '/') + resourceQuery
 
+  // 每个文件都会有一个id
   const id = hash(
     isProduction
       ? (shortFilePath + '\n' + source)
@@ -99,8 +106,11 @@ module.exports = function (source) {
   )
 
   // feature information
+  // style标签是否加上了scoped
   const hasScoped = descriptor.styles.some(s => s.scoped)
+  // 是否是函数式组件
   const hasFunctional = descriptor.template && descriptor.template.attrs.functional
+  // 是否需要热重载
   const needsHotReload = (
     !isServer &&
     !isProduction &&
@@ -108,7 +118,7 @@ module.exports = function (source) {
     options.hotReload !== false
   )
 
-  // template
+  // 生成引入template块的代码
   let templateImport = `var render, staticRenderFns`
   let templateRequest
   if (descriptor.template) {
@@ -121,7 +131,7 @@ module.exports = function (source) {
     templateImport = `import { render, staticRenderFns } from ${request}`
   }
 
-  // script
+  // 生成引入script块的代码
   let scriptImport = `var script = {}`
   if (descriptor.script) {
     const src = descriptor.script.src || resourcePath
@@ -167,6 +177,7 @@ var component = normalizer(
 )
   `.trim() + `\n`
 
+  // 自定义块
   if (descriptor.customBlocks && descriptor.customBlocks.length) {
     code += genCustomBlocksCode(
       descriptor.customBlocks,

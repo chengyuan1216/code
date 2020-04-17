@@ -1,4 +1,5 @@
 module.exports = function (source, map) {
+  debugger
   console.log(source, map, this.resourceQuery)
 
   this.callback(
