@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Index from './index.vue'
-import About from './about.vue'
+// import About from './about.vue'
 import VuePermission from '../plugin/VuePermission'
 import Vue18n from 'vue-i18n'
 Vue.use(VuePermission)

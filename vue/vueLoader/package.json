@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init": "cnpm i && cd ./loader/vue-loader && cnpm i",
     "build": "webpack"
   },
   "author": "",

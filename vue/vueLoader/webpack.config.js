@@ -10,7 +10,7 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                use:'vue-loader',
+                use: path.resolve(__dirname, './loader/vue-loader'),
                 // options: {
                 //     loaders: {
                 //         // permission: path.resolve(__dirname, './permission-loader.js')
