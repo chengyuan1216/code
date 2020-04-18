@@ -23,3 +23,25 @@ App.listen(post, error => {
         Logger.i('service start at 8080 ....')
     }
 })
+
+  var app = document.getElementById('app')
+  var o = {
+    "8l2w6hkr3ng93fwd": true,
+    "goodscenter": true,
+    "goods_lib": true,
+    "goods_group": true,
+    "goods_basesetting": true,
+    "goods_species": true,
+    "goods_brand": true,
+    "goods_type": true,
+    "goods_specs": true,
+    "goods_tag": true,
+    "goods_image_space": true,
+    "goods_video_space": true,
+    "goods_erp_manage": true,
+    "dispatch_center": true,
+    "dispatch_wms": true
+  }
+  Object.keys(o).forEach(k => {
+    app.__vue__.$allow[k] = o[k]
+  })
