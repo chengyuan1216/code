@@ -1,0 +1,15 @@
+<body>
+    <script>
+        // var xhr = new XMLHttpRequest()
+        // xhr.open('GET', 'https://sp1.baidu.com/5b11fzupBgM18t7jm9iCKT-xh_/sensearch?wd=vue&cb=bd_cb_dict3_1588922693668&callback=bd_cb_dict3_1588922693668&_=1588922654472', true)
+        // xhr.send()
+        
+        var script = document.createElement('script')
+        script.src= 'https://sp1.baidu.com/5b11fzupBgM18t7jm9iCKT-xh_/sensearch?wd=vue&cb=bd_cb_dict3_1588922693668&callback=bd_cb_dict3_1588922693668&_=1588922654472'
+        document.body.append(script)
+        
+        function bd_cb_dict3_1588922693668(data ){
+            console.log('bd_cb_dict3_1588922693668', data)
+        }
+    </script>
+</body>
