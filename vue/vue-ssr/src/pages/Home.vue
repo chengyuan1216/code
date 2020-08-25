@@ -12,7 +12,6 @@ export default {
   // 在服务端渲染时通过asyncData来获取异步数据
   // 在纯客户端渲染并不会执行 asyncData
   asyncData ({ store, route }) {
-    debugger
     console.log('asyncData')
     // 触发 action 后，会返回 Promise
     return store.dispatch('fetchItem', 1)

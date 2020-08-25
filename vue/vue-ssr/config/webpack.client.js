@@ -1,5 +1,6 @@
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const config = require('./webpack.base')
 const {resolve} = require('./util')
 
@@ -9,7 +10,8 @@ module.exports = merge(config, {
     },
     output: {
         path: resolve('dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/dist/'
     },
     devServer: {
         proxy: {},
@@ -24,6 +26,7 @@ module.exports = merge(config, {
         new HtmlWebpackPlugin({
             template: resolve('index.html'),
             filename: 'index.html'
-        })
+        }),
+        new VueSSRClientPlugin()
     ]
 })

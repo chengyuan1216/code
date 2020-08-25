@@ -10,7 +10,6 @@ export function createStore () {
     },
     actions: {
       fetchItem ({ commit }, id) {
-          debugger
         // `store.dispatch()` 会返回 Promise，
         // 以便我们能够知道数据在何时更新
         return new Promise((resolve) => {
